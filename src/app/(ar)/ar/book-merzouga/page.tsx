@@ -90,7 +90,7 @@ export default function ContactPageAr() {
       <symbol id="rt" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
       <symbol id="pin" viewBox="0 0 24 24"><path d="M12 22s7-6.500 7-12a7 7 0 0 0-14 0c0 5.500 7 12 7 12z" fill="currentColor" /><circle cx="12" cy="10" r="2.500" fill="#4a0c1a" stroke="none" /></symbol>
       <symbol id="phone" viewBox="0 0 24 24"><path d="M6.500 3 9 3l1.500 4.500-2 1.500a11 11 0 0 0 6.500 6.500l1.500-2 4.500 1.500v2.500A2.500 2.500 0 0 1 18.500 20 15.500 15.500 0 0 1 4 5.500 2.500 2.500 0 0 1 6.500 3z" fill="currentColor" stroke="none" /></symbol>
-      <symbol id="mail" dir="ltr" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="currentColor" stroke="none" /><path d="m3.500 7 8.500 6.500L20.500 7" stroke="#4a0c1a" strokeWidth="1.600" /></symbol>
+      <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="currentColor" stroke="none" /><path d="m3.500 7 8.500 6.500L20.500 7" stroke="#4a0c1a" strokeWidth="1.600" /></symbol>
       <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.500 2" /></symbol>
       <symbol id="chk" viewBox="0 0 24 24"><path d="m5 12.500 4.500 4.500L19 7.500" strokeWidth="2.600" /></symbol>
       <symbol id="star8" viewBox="0 0 24 24"><path d="M12 2l2.600 5.400 5.900-.9-3 5.200 3 5.200-5.900-.9L12 22l-2.600-5.400-5.900.9 3-5.200-3-5.200 5.900.9z" /></symbol>
@@ -116,8 +116,8 @@ export default function ContactPageAr() {
       <section className="info rv">
       <div><h2>معلوماتنا</h2><div className="dl"><i></i></div>
       <div className="row"><div className="ic"><svg className="i"><use href="#pin" /></svg></div><div><b>موقعنا</b><span>مرزوكة، المغرب</span></div></div>
-      <div className="row"><div className="ic"><svg className="i"><use href="#phone" /></svg></div><div><b>الهاتف / واتساب</b><a href="tel:+212661175228" dir="ltr">+212 661 175 228</a></div></div>
-      <div className="row"><div className="ic"><svg className="i"><use href="#mail" /></svg></div><div><b>Email</b><a id="mail" dir="ltr" href={`mailto:${SITE.email}`}>osaadiluxurydesertcamp@gmail.com</a></div></div>
+      <div className="row"><div className="ic"><svg className="i"><use href="#phone" /></svg></div><div><b>الهاتف / واتساب</b><a href="tel:+212661175228">+212 661 175 228</a></div></div>
+      <div className="row"><div className="ic"><svg className="i"><use href="#mail" /></svg></div><div><b>Email</b><a id="mail" href={`mailto:${SITE.email}`}>osaadiluxurydesertcamp@gmail.com</a></div></div>
       <div className="row"><div className="ic"><svg className="i"><use href="#clock" /></svg></div><div><b>التوفر</b><span>كل يوم، على مدار الساعة</span></div></div></div>
       <div className="book"><i className="orn tr" style={{opacity:".4"}}></i>
       <h2><svg className="i"><use href="#wa" /></svg>احجز إقامتك الآن</h2>
