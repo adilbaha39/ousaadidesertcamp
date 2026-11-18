@@ -98,8 +98,9 @@ export default function PageEffects() {
       window.addEventListener('keydown', (e) => {
         if (!lb.classList.contains('on')) return
         if (e.key === 'Escape') hide()
-        if (isGallery && e.key === 'ArrowLeft') show(cur - 1)
-        if (isGallery && e.key === 'ArrowRight') show(cur + 1)
+        const rtl = document.documentElement.dir === 'rtl'
+        if (isGallery && e.key === 'ArrowLeft') show(rtl ? cur + 1 : cur - 1)
+        if (isGallery && e.key === 'ArrowRight') show(rtl ? cur - 1 : cur + 1)
       }, { signal })
     }
 

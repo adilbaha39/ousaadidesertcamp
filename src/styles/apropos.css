@@ -22,9 +22,13 @@
 .pg-apropos .gold{background:linear-gradient(180deg,#efc97c,#d9a54e);color:#4a0c1a}
 .pg-apropos .wine{background:linear-gradient(180deg,#7d1830,#58101f);color:#fff}
 .pg-apropos .wine:hover{background:#8a1e38}
+.pg-apropos .langs{display:flex;gap:2px;border:1.5px solid var(--gold);border-radius:30px;padding:2px}
+.pg-apropos .langs a{font:600 12px var(--serif);color:var(--gold-l);padding:5px 9px;border-radius:20px;letter-spacing:1px;transition:background .25s,color .25s}
+.pg-apropos .langs a:hover{background:rgba(217,162,74,.25)}
+.pg-apropos .langs a.on{background:var(--gold);color:var(--wine-d)}
 .pg-apropos .burger{display:none;background:none;border:0;color:var(--gold-l);font-size:30px;cursor:pointer}
 .pg-apropos .hero{position:relative;height:clamp(380px,33.800vw,560px);margin-top:0;color:#fff;overflow:hidden;background:linear-gradient(90deg,#150c10,#2a1316 40%,#3a1a14);clip-path:polygon(0 0,100% 0,100% 98%,85% 94%,66% 97%,45% 96%,25% 92%,10% 94%,0 90%)}
-.pg-apropos .hero-img{position:absolute;right:0;top:0;bottom:0;width:70%;background:url(/images/apropos-hero-img.jpg) right bottom/cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%);mask-image:linear-gradient(90deg,transparent,#000 24%)}
+.pg-apropos .hero-img{position:absolute;right:0;top:0;bottom:0;width:70%;background:url(/images/apropos-hero-img.webp) right bottom/cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%);mask-image:linear-gradient(90deg,transparent,#000 24%)}
 .pg-apropos .hero-txt{position:relative;z-index:3;padding:clamp(120px,14.5vw,200px) var(--pad) 0;max-width:min(100%,48%)}
 .pg-apropos .hero h1{font:600 clamp(40px,4.700vw,70px)/1.05 var(--serif);text-shadow:0 3px 16px #000a}
 .pg-apropos .hero p{font:italic 500 clamp(22px,2.7vw,38px)/1.25 var(--serif);color:var(--gold-l);margin-top:6px;text-shadow:0 2px 10px #000a}
@@ -58,7 +62,7 @@
 .pg-apropos .cta h2{font:italic 500 clamp(26px,3vw,42px)/1.2 var(--serif)}
 .pg-apropos .cta h2 em{display:block;color:var(--gold-l)}
 .pg-apropos .cta p{font:500 clamp(18px,1.700vw,22px) var(--serif);margin:8px 0 18px}
-.pg-apropos .cta .pic{position:absolute;right:0;top:0;bottom:0;width:52%;background:url(/images/apropos-cta.jpg) center/cover;clip-path:polygon(24% 0,100% 0,100% 100%,0 100%,2% 84%,8% 56%,15% 28%)}
+.pg-apropos .cta .pic{position:absolute;right:0;top:0;bottom:0;width:52%;background:url(/images/apropos-cta.webp) center/cover;clip-path:polygon(24% 0,100% 0,100% 100%,0 100%,2% 84%,8% 56%,15% 28%)}
 .pg-apropos .cta svg.cv{position:absolute;right:0;top:0;bottom:0;width:52%;height:100%;z-index:2;pointer-events:none}
 .pg-apropos footer{background:linear-gradient(90deg,#5a1325,#4a0c1a);color:#f3e6cf;padding:16px var(--pad)}
 .pg-apropos .ft{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
