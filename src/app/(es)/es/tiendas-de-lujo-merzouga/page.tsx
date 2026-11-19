@@ -83,7 +83,15 @@ export default function AlojamientoPageEs() {
       <Link className="logo" href="/es" aria-label="Ousaadi Luxury Desert Camp — inicio"><svg className="i lm"><use href="#logo" /></svg><b>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <nav id="nav" aria-label="Navegación principal"><ul>
       <li><Link href="/es">Inicio</Link></li><li><a href="#top" className="active">Alojamiento</a></li><li><Link href="/es/excursiones-merzouga">Experiencias</Link></li><li><Link href="/es/fotos-merzouga">Galería</Link></li><li><Link href="/es/campamento-lujo-merzouga">Sobre nosotros</Link></li><li><Link href="/es/reservar-merzouga">Contacto</Link></li></ul></nav>
-      <div className="langs" role="group" aria-label="Idioma"><a href="/tentes-de-luxe-merzouga" hrefLang="fr" lang="fr">FR</a><a href="/en/luxury-tents-merzouga" hrefLang="en" lang="en">EN</a><a href="/es/tiendas-de-lujo-merzouga" hrefLang="es" lang="es" className="on" aria-current="true">ES</a><a href="/ar/luxury-tents-merzouga" hrefLang="ar" lang="ar">AR</a></div>
+      <div className="lang-switch">
+      <button className="lang-btn" aria-label="Language" aria-expanded="false">ES ▾</button>
+      <div className="lang-menu">
+        <a href="/" hrefLang="fr" lang="fr">FR</a>
+        <a href="/en" hrefLang="en" lang="en">EN</a>
+        <a href="/es" hrefLang="es" lang="es">ES</a>
+        <a href="/ar" hrefLang="ar" lang="ar">AR</a>
+      </div>
+    </div>
       <a className="btn wine hd-btn" target="_blank" rel="noopener" href={wa("Hola, me gustaría reservar una jaima en el campamento Ousaadi en Merzouga.")}><svg className="i"><use href="#wa" /></svg>Reservar por WhatsApp</a>
       <button className="burger" id="bg" aria-label="Abrir el menú" aria-expanded="false">☰</button>
       </header>

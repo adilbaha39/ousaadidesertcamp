@@ -76,7 +76,15 @@ export default function AboutPageEn() {
       <Link className="logo" href="/en" aria-label="Ousaadi Luxury Desert Camp — home"><svg className="i lm"><use href="#logo" /></svg><b>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <nav id="nav" aria-label="Main navigation"><ul>
       <li><Link href="/en">Home</Link></li><li><Link href="/en/luxury-tents-merzouga">Accommodation</Link></li><li><Link href="/en/excursions-merzouga">Experiences</Link></li><li><Link href="/en/photos-merzouga">Gallery</Link></li><li><a href="#top" className="active">About</a></li><li><Link href="/en/book-merzouga">Contact</Link></li></ul></nav>
-      <div className="langs" role="group" aria-label="Language"><a href="/merzouga-luxury-desert-camp" hrefLang="fr" lang="fr">FR</a><a href="/en/merzouga-luxury-desert-camp" hrefLang="en" lang="en" className="on" aria-current="true">EN</a><a href="/es/campamento-lujo-merzouga" hrefLang="es" lang="es">ES</a><a href="/ar/merzouga-luxury-desert-camp" hrefLang="ar" lang="ar">AR</a></div>
+      <div className="lang-switch">
+      <button className="lang-btn" aria-label="Language" aria-expanded="false">EN ▾</button>
+      <div className="lang-menu">
+        <a href="/" hrefLang="fr" lang="fr">FR</a>
+        <a href="/en" hrefLang="en" lang="en">EN</a>
+        <a href="/es" hrefLang="es" lang="es">ES</a>
+        <a href="/ar" hrefLang="ar" lang="ar">AR</a>
+      </div>
+    </div>
       <a className="btn gold hd-btn" target="_blank" rel="noopener" href={wa("Hello, I would like to book a stay at Ousaadi desert camp in Merzouga.")}><svg className="i"><use href="#wa" /></svg>Book on WhatsApp</a>
       <button className="burger" id="bg" aria-label="Open menu" aria-expanded="false">☰</button>
       </header>

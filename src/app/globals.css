@@ -1,2 +1,24 @@
 html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
 body{margin:0}
+
+/* Language switcher - always visible */
+.langs{display:flex!important;gap:2px;border:1.5px solid #d9a24a;border-radius:30px;padding:2px;z-index:10}
+.langs a{font:600 12px serif;color:#f0d9a0;padding:5px 9px;border-radius:20px;letter-spacing:1px;text-decoration:none;transition:background .25s,color .25s}
+.langs a:hover{background:rgba(217,162,74,.25)}
+.langs a.on{background:#d9a24a;color:#4a0c1a}
+@media(max-width:1000px){
+  .langs{margin:8px auto}
+  header{justify-content:space-between}
+}
+
+/* Language dropdown */
+.lang-switch{position:relative;z-index:20}
+.lang-btn{background:none;border:1.5px solid #d9a24a;color:#f0d9a0;border-radius:20px;padding:5px 12px;font:600 13px serif;cursor:pointer;letter-spacing:1px}
+.lang-btn:hover{background:rgba(217,162,74,.2)}
+.lang-menu{display:none;position:absolute;top:100%;right:0;margin-top:6px;background:rgba(8,16,44,.97);border:1.5px solid #d9a24a;border-radius:12px;min-width:80px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.lang-menu.open{display:block}
+.lang-menu a{display:block;padding:8px 16px;color:#f0d9a0;text-decoration:none;font:600 13px serif;letter-spacing:1px;text-align:center}
+.lang-menu a:hover{background:rgba(217,162,74,.25)}
+@media(max-width:1000px){
+  .lang-switch{margin:0 8px}
+}

@@ -38,6 +38,19 @@ export default function PageEffects() {
       }, { signal })
       nav.addEventListener('click', (e) => { if ((e.target as Element).closest('a')) close() }, { signal })
     }
+    // --- Language dropdown
+    const langBtn = $<HTMLButtonElement>('.lang-btn')
+    const langMenu = $<HTMLDivElement>('.lang-menu')
+    if (langBtn && langMenu) {
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const open = langMenu.classList.toggle('open')
+        langBtn.setAttribute('aria-expanded', String(open))
+      }, { signal })
+      document.addEventListener('click', () => langMenu.classList.remove('open'), { signal })
+      langMenu.addEventListener('click', (e) => e.stopPropagation(), { signal })
+    }
+
 
     // --- Animations au scroll
     const io = new IntersectionObserver((entries) => {

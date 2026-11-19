@@ -65,7 +65,15 @@ export default function HomePageAr() {
       <a className="logo" href="#top" aria-label="Ousaadi Luxury Desert Camp"><svg className="i lm"><use href="#logo" /></svg><b>OUSAADI</b><small>LUXURY DESERT CAMP</small></a>
       <nav id="nav" aria-label="التنقل الرئيسي"><ul>
       <li><a href="#top" className="active">الرئيسية</a></li><li><Link href="/ar/luxury-tents-merzouga">الإقامة</Link></li><li><Link href="/ar/excursions-merzouga">التجارب</Link></li><li><Link href="/ar/photos-merzouga">المعرض</Link></li><li><Link href="/ar/merzouga-luxury-desert-camp">من نحن</Link></li><li><Link href="/ar/book-merzouga">اتصل بنا</Link></li></ul></nav>
-      <div className="langs" role="group" aria-label="اللغة"><a href="/" hrefLang="fr" lang="fr">FR</a><a href="/en" hrefLang="en" lang="en">EN</a><a href="/es" hrefLang="es" lang="es">ES</a><a href="/ar" hrefLang="ar" lang="ar" className="on" aria-current="true">AR</a></div>
+      <div className="lang-switch">
+      <button className="lang-btn" aria-label="Language" aria-expanded="false">AR ▾</button>
+      <div className="lang-menu">
+        <a href="/" hrefLang="fr" lang="fr">FR</a>
+        <a href="/en" hrefLang="en" lang="en">EN</a>
+        <a href="/es" hrefLang="es" lang="es">ES</a>
+        <a href="/ar" hrefLang="ar" lang="ar">AR</a>
+      </div>
+    </div>
       <a className="btn wine hd-btn" target="_blank" rel="noopener" href={wa("مرحبًا، أودّ حجز إقامة في مخيم Ousaadi في مرزوكة.")}><svg className="i"><use href="#wa" /></svg>احجز عبر واتساب</a>
       <button className="burger" id="bg" aria-label="فتح القائمة" aria-expanded="false">☰</button>
       </header>

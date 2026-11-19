@@ -76,7 +76,15 @@ export default function AboutPageAr() {
       <Link className="logo" href="/ar" aria-label="Ousaadi Luxury Desert Camp — الرئيسية"><svg className="i lm"><use href="#logo" /></svg><b>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <nav id="nav" aria-label="التنقل الرئيسي"><ul>
       <li><Link href="/ar">الرئيسية</Link></li><li><Link href="/ar/luxury-tents-merzouga">الإقامة</Link></li><li><Link href="/ar/excursions-merzouga">التجارب</Link></li><li><Link href="/ar/photos-merzouga">المعرض</Link></li><li><a href="#top" className="active">من نحن</a></li><li><Link href="/ar/book-merzouga">اتصل بنا</Link></li></ul></nav>
-      <div className="langs" role="group" aria-label="اللغة"><a href="/merzouga-luxury-desert-camp" hrefLang="fr" lang="fr">FR</a><a href="/en/merzouga-luxury-desert-camp" hrefLang="en" lang="en">EN</a><a href="/es/campamento-lujo-merzouga" hrefLang="es" lang="es">ES</a><a href="/ar/merzouga-luxury-desert-camp" hrefLang="ar" lang="ar" className="on" aria-current="true">AR</a></div>
+      <div className="lang-switch">
+      <button className="lang-btn" aria-label="Language" aria-expanded="false">AR ▾</button>
+      <div className="lang-menu">
+        <a href="/" hrefLang="fr" lang="fr">FR</a>
+        <a href="/en" hrefLang="en" lang="en">EN</a>
+        <a href="/es" hrefLang="es" lang="es">ES</a>
+        <a href="/ar" hrefLang="ar" lang="ar">AR</a>
+      </div>
+    </div>
       <a className="btn gold hd-btn" target="_blank" rel="noopener" href={wa("مرحبًا، أودّ حجز إقامة في مخيم Ousaadi في مرزوكة.")}><svg className="i"><use href="#wa" /></svg>احجز عبر واتساب</a>
       <button className="burger" id="bg" aria-label="فتح القائمة" aria-expanded="false">☰</button>
       </header>

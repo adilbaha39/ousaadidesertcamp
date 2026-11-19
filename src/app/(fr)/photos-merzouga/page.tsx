@@ -76,7 +76,15 @@ export default function GaleriePage() {
       <Link className="logo" href="/" aria-label="Ousaadi Luxury Desert Camp — accueil"><svg className="i lm"><use href="#logo" /></svg><b>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <nav id="nav" aria-label="Navigation principale"><ul>
       <li><Link href="/">Accueil</Link></li><li><Link href="/tentes-de-luxe-merzouga">Hébergement</Link></li><li><Link href="/excursions-merzouga">Expériences</Link></li><li><a href="#top" className="active">Galerie</a></li><li><Link href="/merzouga-luxury-desert-camp">À propos</Link></li><li><Link href="/reservation-merzouga">Contact</Link></li></ul></nav>
-      <div className="langs" role="group" aria-label="Langue"><a href="/photos-merzouga" hrefLang="fr" lang="fr" className="on" aria-current="true">FR</a><a href="/en/photos-merzouga" hrefLang="en" lang="en">EN</a><a href="/es/fotos-merzouga" hrefLang="es" lang="es">ES</a><a href="/ar/photos-merzouga" hrefLang="ar" lang="ar">AR</a></div>
+      <div className="lang-switch">
+      <button className="lang-btn" aria-label="Language" aria-expanded="false">FR ▾</button>
+      <div className="lang-menu">
+        <a href="/" hrefLang="fr" lang="fr">FR</a>
+        <a href="/en" hrefLang="en" lang="en">EN</a>
+        <a href="/es" hrefLang="es" lang="es">ES</a>
+        <a href="/ar" hrefLang="ar" lang="ar">AR</a>
+      </div>
+    </div>
       <a className="btn wine hd-btn" target="_blank" rel="noopener" href={wa("Bonjour, je souhaite réserver un séjour au camp Ousaadi à Merzouga.")}><svg className="i"><use href="#wa" /></svg>Réserver sur WhatsApp</a>
       <button className="burger" id="bg" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
       </header>
