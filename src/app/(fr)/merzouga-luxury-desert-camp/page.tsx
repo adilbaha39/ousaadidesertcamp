@@ -122,7 +122,7 @@ export default function AProposPage() {
       <div className="ft">
       <Link className="logo" href="/" aria-label="Accueil"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"26px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/">Accueil</Link></li><li><Link href="/tentes-de-luxe-merzouga">Hébergement</Link></li><li><Link href="/excursions-merzouga">Expériences</Link></li><li><Link href="/photos-merzouga">Galerie</Link></li><li><a href="#top">À propos</a></li><li><Link href="/reservation-merzouga">Contact</Link></li></ul>
-      <div className="soc"><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://tripadvisor.com" target="_blank" rel="noopener" aria-label="Tripadvisor"><svg className="i"><use href="#ta" /></svg></a></div>
+      
       <div className="loc"><svg className="i"><use href="#pin" /></svg>Merzouga, Maroc</div>
       </div>
       </footer>

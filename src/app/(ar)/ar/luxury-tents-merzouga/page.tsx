@@ -144,7 +144,7 @@ export default function AccommodationPageAr() {
       <Link className="logo" href="/ar" aria-label="الرئيسية"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"28px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/ar">الرئيسية</Link></li><li><a href="#top">الإقامة</a></li><li><Link href="/ar/excursions-merzouga">التجارب</Link></li><li><Link href="/ar/photos-merzouga">المعرض</Link></li><li><Link href="/ar/merzouga-luxury-desert-camp">من نحن</Link></li><li><Link href="/ar/book-merzouga">اتصل بنا</Link></li></ul>
       <a className="wa" target="_blank" rel="noopener" href={wa("مرحبًا، أودّ حجز خيمة في مخيم Ousaadi في مرزوكة.")}><svg className="i"><use href="#wa" /></svg>احجز عبر واتساب</a>
-      <div className="soc"><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><svg className="i"><use href="#yt" /></svg></a></div>
+      
       </div>
       <div className="fl"><i></i></div>
       <p className="cp">© 2025 Ousaadi Luxury Desert Camp. جميع الحقوق محفوظة.</p>

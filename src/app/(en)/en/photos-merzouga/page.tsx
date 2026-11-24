@@ -114,6 +114,12 @@ export default function GalleryPageEn() {
       <button className="ph" data-cat="tentes"><Image src="/images/chambre-en-tente-de-luxe-aux-lits-bordeaux-luxury-desert-camp-merzouga.webp" width={634} height={408} sizes="(max-width: 1000px) 100vw, 50vw" alt="Luxury tent bedroom with burgundy beds, luxury desert camp Merzouga" /></button>
       <button className="ph" data-cat="camp"><Image src="/images/lanternes-marocaines-blanches-dans-le-camp-de-merzouga-la-nuit.webp" width={590} height={412} sizes="(max-width: 1000px) 100vw, 50vw" alt="White Moroccan lanterns at the Merzouga camp at night" /></button>
       <button className="ph" data-cat="activites"><Image src="/images/feu-de-camp-et-coussins-rouges-sous-les-etoiles-camp-ousaadi-a-merzoug.webp" width={620} height={412} sizes="(max-width: 1000px) 100vw, 50vw" alt="Campfire and red cushions under the stars, Ousaadi camp in Merzouga" /></button>
+      <button className="ph" data-cat="camp"><Image src="/images/coeur-coucher-soleil.webp" width={600} height={600} sizes="(max-width: 1000px) 100vw, 50vw" alt="Wooden heart at sunset, Merzouga dunes" /></button>
+      <button className="ph" data-cat="camp"><Image src="/images/allee-tapis-rouge-nuit.webp" width={600} height={800} sizes="(max-width: 1000px) 100vw, 50vw" alt="Red carpet alley with lanterns at night, Ousaadi camp" /></button>
+      <button className="ph" data-cat="activites"><Image src="/images/4x4-toyota-dunes.webp" width={700} height={500} sizes="(max-width: 1000px) 100vw, 50vw" alt="Toyota 4x4 excursion in Merzouga dunes" /></button>
+      <button className="ph" data-cat="activites"><Image src="/images/quads-dunes.webp" width={700} height={500} sizes="(max-width: 1000px) 100vw, 50vw" alt="Quad biking in Merzouga dunes" /></button>
+      <button className="ph" data-cat="camp"><Image src="/images/soiree-feu-camp.webp" width={700} height={500} sizes="(max-width: 1000px) 100vw, 50vw" alt="Evening around the campfire at Ousaadi camp" /></button>
+      <button className="ph" data-cat="camp"><Image src="/images/buffet-restaurant.webp" width={700} height={500} sizes="(max-width: 1000px) 100vw, 50vw" alt="Moroccan buffet at Ousaadi camp restaurant" /></button>
       </section>
       </main>
       <section className="cta" id="contact">
@@ -128,7 +134,7 @@ export default function GalleryPageEn() {
       <Link className="logo" href="/en" aria-label="Home"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"28px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/en">Home</Link></li><li><Link href="/en/luxury-tents-merzouga">Accommodation</Link></li><li><Link href="/en/excursions-merzouga">Experiences</Link></li><li><a href="#top">Gallery</a></li><li><Link href="/en/merzouga-luxury-desert-camp">About</Link></li><li><Link href="/en/book-merzouga">Contact</Link></li></ul>
       <a className="wa" target="_blank" rel="noopener" href={wa("Hello, I would like to book a stay at Ousaadi desert camp in Merzouga.")}><svg className="i"><use href="#wa" /></svg>Book on WhatsApp</a>
-      <div className="soc"><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><svg className="i"><use href="#yt" /></svg></a></div>
+      
       </div>
       <div className="fl"><i></i></div>
       <p className="cp">© 2025 Ousaadi Luxury Desert Camp. All rights reserved.</p>

@@ -129,7 +129,7 @@ export default function ExperiencesPage() {
       <Link className="logo" href="/" aria-label="Accueil"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"28px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/">Accueil</Link></li><li><Link href="/tentes-de-luxe-merzouga">Hébergement</Link></li><li><a href="#top">Expériences</a></li><li><Link href="/photos-merzouga">Galerie</Link></li><li><Link href="/merzouga-luxury-desert-camp">À propos</Link></li><li><Link href="/reservation-merzouga">Contact</Link></li></ul>
       <a className="wa" target="_blank" rel="noopener" href={wa("Bonjour, je souhaite réserver un séjour au camp Ousaadi à Merzouga.")}><svg className="i"><use href="#wa" /></svg>Réserver sur WhatsApp</a>
-      <div className="soc"><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><svg className="i"><use href="#yt" /></svg></a></div>
+      
       </div>
       <div className="fl"><i></i></div>
       <p className="cp">© 2025 Ousaadi Luxury Desert Camp. Tous droits réservés.</p>

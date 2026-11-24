@@ -124,7 +124,7 @@ export default function AboutPageEn() {
       <div className="ft">
       <Link className="logo" href="/en" aria-label="Home"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"26px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/en">Home</Link></li><li><Link href="/en/luxury-tents-merzouga">Accommodation</Link></li><li><Link href="/en/excursions-merzouga">Experiences</Link></li><li><Link href="/en/photos-merzouga">Gallery</Link></li><li><a href="#top">About</a></li><li><Link href="/en/book-merzouga">Contact</Link></li></ul>
-      <div className="soc"><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://tripadvisor.com" target="_blank" rel="noopener" aria-label="Tripadvisor"><svg className="i"><use href="#ta" /></svg></a></div>
+      
       <div className="loc"><svg className="i"><use href="#pin" /></svg>Merzouga, Morocco</div>
       </div>
       </footer>

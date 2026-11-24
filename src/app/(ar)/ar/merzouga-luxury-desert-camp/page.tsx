@@ -124,7 +124,7 @@ export default function AboutPageAr() {
       <div className="ft">
       <Link className="logo" href="/ar" aria-label="الرئيسية"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"26px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/ar">الرئيسية</Link></li><li><Link href="/ar/luxury-tents-merzouga">الإقامة</Link></li><li><Link href="/ar/excursions-merzouga">التجارب</Link></li><li><Link href="/ar/photos-merzouga">المعرض</Link></li><li><a href="#top">من نحن</a></li><li><Link href="/ar/book-merzouga">اتصل بنا</Link></li></ul>
-      <div className="soc"><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://tripadvisor.com" target="_blank" rel="noopener" aria-label="Tripadvisor"><svg className="i"><use href="#ta" /></svg></a></div>
+      
       <div className="loc"><svg className="i"><use href="#pin" /></svg>مرزوكة، المغرب</div>
       </div>
       </footer>

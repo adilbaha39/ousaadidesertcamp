@@ -136,8 +136,7 @@ export default function ContactoPageEs() {
       </section>
       <Image src="/images/dromadaires-dans-les-dunes-au-coucher-du-soleil-desert-de-merzouga.webp" width={2048} height={144} sizes="(max-width: 1000px) 100vw, 50vw" className="dunes" alt="Camellos en las dunas al atardecer, desierto de Merzouga" />
       <section className="find rv">
-      <div className="map"><iframe title="Mapa del campamento Ousaadi en Merzouga, Marruecos" loading="lazy" referrerPolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Ousaadi%20desert%20camp%2C%20Merzouga&amp;t=k&amp;z=13&amp;output=embed"></iframe>
-      </div>
+      
       <div className="t"><h2>Cómo encontrarnos</h2><div className="dl"><i></i></div>
       <p>Nuestro campamento se encuentra en Merzouga, en el corazón del desierto marroquí, y es de fácil acceso desde Erfoud.</p>
       <ul><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Cerca de las grandes dunas</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Fácil acceso en coche</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Cálida bienvenida en el lugar</li></ul></div>
@@ -154,7 +153,7 @@ export default function ContactoPageEs() {
       <div className="ft">
       <Link className="logo" href="/es" aria-label="Inicio"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"26px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/es">Inicio</Link></li><li><Link href="/es/tiendas-de-lujo-merzouga">Alojamiento</Link></li><li><Link href="/es/excursiones-merzouga">Experiencias</Link></li><li><Link href="/es/fotos-merzouga">Galería</Link></li><li><Link href="/es/campamento-lujo-merzouga">Sobre nosotros</Link></li><li><a href="#top">Contacto</a></li></ul>
-      <div className="soc"><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://tripadvisor.com" target="_blank" rel="noopener" aria-label="Tripadvisor"><svg className="i"><use href="#ta" /></svg></a></div>
+      
       <div className="loc"><svg className="i"><use href="#pin" /></svg>Merzouga, Marruecos</div>
       </div>
       </footer>

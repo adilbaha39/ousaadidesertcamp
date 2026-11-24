@@ -136,8 +136,7 @@ export default function ContactPageAr() {
       </section>
       <Image src="/images/dromadaires-dans-les-dunes-au-coucher-du-soleil-desert-de-merzouga.webp" width={2048} height={144} sizes="(max-width: 1000px) 100vw, 50vw" className="dunes" alt="جمال على الكثبان عند الغروب، صحراء مرزوكة" />
       <section className="find rv">
-      <div className="map"><iframe title="خريطة مخيم Ousaadi في مرزوكة، المغرب" loading="lazy" referrerPolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Ousaadi%20desert%20camp%2C%20Merzouga&amp;t=k&amp;z=13&amp;output=embed"></iframe>
-      </div>
+      
       <div className="t"><h2>كيف تجدنا</h2><div className="dl"><i></i></div>
       <p>يقع مخيمنا في مرزوكة، في قلب الصحراء المغربية، ويسهل الوصول إليه من أرفود.</p>
       <ul><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>بالقرب من الكثبان الكبيرة</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>وصول سهل بالسيارة</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>استقبال دافئ في عين المكان</li></ul></div>
@@ -154,7 +153,7 @@ export default function ContactPageAr() {
       <div className="ft">
       <Link className="logo" href="/ar" aria-label="الرئيسية"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"26px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/ar">الرئيسية</Link></li><li><Link href="/ar/luxury-tents-merzouga">الإقامة</Link></li><li><Link href="/ar/excursions-merzouga">التجارب</Link></li><li><Link href="/ar/photos-merzouga">المعرض</Link></li><li><Link href="/ar/merzouga-luxury-desert-camp">من نحن</Link></li><li><a href="#top">اتصل بنا</a></li></ul>
-      <div className="soc"><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://tripadvisor.com" target="_blank" rel="noopener" aria-label="Tripadvisor"><svg className="i"><use href="#ta" /></svg></a></div>
+      
       <div className="loc"><svg className="i"><use href="#pin" /></svg>مرزوكة، المغرب</div>
       </div>
       </footer>

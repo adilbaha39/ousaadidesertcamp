@@ -136,8 +136,7 @@ export default function ContactPageEn() {
       </section>
       <Image src="/images/dromadaires-dans-les-dunes-au-coucher-du-soleil-desert-de-merzouga.webp" width={2048} height={144} sizes="(max-width: 1000px) 100vw, 50vw" className="dunes" alt="Camels on the dunes at sunset, Merzouga desert" />
       <section className="find rv">
-      <div className="map"><iframe title="Map of Ousaadi camp in Merzouga, Morocco" loading="lazy" referrerPolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Ousaadi%20desert%20camp%2C%20Merzouga&amp;t=k&amp;z=13&amp;output=embed"></iframe>
-      </div>
+      
       <div className="t"><h2>How to find us</h2><div className="dl"><i></i></div>
       <p>Our camp is located in Merzouga, in the heart of the Moroccan desert, easily accessible from Erfoud.</p>
       <ul><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Close to the big dunes</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Easy access by car</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Warm welcome on site</li></ul></div>
@@ -154,7 +153,7 @@ export default function ContactPageEn() {
       <div className="ft">
       <Link className="logo" href="/en" aria-label="Home"><svg className="i lm"><use href="#logo" /></svg><b style={{fontSize:"26px"}}>OUSAADI</b><small>LUXURY DESERT CAMP</small></Link>
       <ul><li><Link href="/en">Home</Link></li><li><Link href="/en/luxury-tents-merzouga">Accommodation</Link></li><li><Link href="/en/excursions-merzouga">Experiences</Link></li><li><Link href="/en/photos-merzouga">Gallery</Link></li><li><Link href="/en/merzouga-luxury-desert-camp">About</Link></li><li><a href="#top">Contact</a></li></ul>
-      <div className="soc"><a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg className="i"><use href="#fb" /></svg></a><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg className="i"><use href="#ig" /></svg></a><a href="https://tripadvisor.com" target="_blank" rel="noopener" aria-label="Tripadvisor"><svg className="i"><use href="#ta" /></svg></a></div>
+      
       <div className="loc"><svg className="i"><use href="#pin" /></svg>Merzouga, Morocco</div>
       </div>
       </footer>
