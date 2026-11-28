@@ -7,10 +7,10 @@ import '@/styles/home.css'
 
 export const metadata: Metadata = {
   title: { absolute: "Merzouga Luxury Desert Camp | Ousaadi, Morocco" },
-  description: "Ousaadi Merzouga luxury desert camp in Morocco: comfortable tents, Moroccan cuisine, camel rides, 4x4 excursions and starry nights in the Sahara. Book on WhatsApp.",
+  description: "Ousaadi Merzouga luxury desert camp in Morocco: comfortable tents, Moroccan cuisine, camel rides, 4x4 excursions and starry Sahara nights. Book on WhatsApp.",
   alternates: { canonical: "/en", languages: { fr: "/", en: "/en", es: "/es", ar: "/ar", 'x-default': "/" } },
-  openGraph: { title: "Merzouga Luxury Desert Camp | Ousaadi, Morocco", description: "Ousaadi Merzouga luxury desert camp in Morocco: comfortable tents, Moroccan cuisine, camel rides, 4x4 excursions and starry nights in the Sahara. Book on WhatsApp.", url: "/en", siteName: SITE.name, locale: 'en_US', type: 'website' },
-  twitter: { card: 'summary_large_image', title: "Merzouga Luxury Desert Camp | Ousaadi, Morocco", description: "Ousaadi Merzouga luxury desert camp in Morocco: comfortable tents, Moroccan cuisine, camel rides, 4x4 excursions and starry nights in the Sahara. Book on WhatsApp." },
+  openGraph: { title: "Merzouga Luxury Desert Camp | Ousaadi, Morocco", description: "Ousaadi Merzouga luxury desert camp in Morocco: comfortable tents, Moroccan cuisine, camel rides, 4x4 excursions and starry Sahara nights. Book on WhatsApp.", url: "/en", siteName: SITE.name, locale: 'en_US', type: 'website' },
+  twitter: { card: 'summary_large_image', title: "Merzouga Luxury Desert Camp | Ousaadi, Morocco", description: "Ousaadi Merzouga luxury desert camp in Morocco: comfortable tents, Moroccan cuisine, camel rides, 4x4 excursions and starry Sahara nights. Book on WhatsApp." },
 }
 
 const jsonLd = {
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/home-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Luxury Merzouga desert camp in Morocco: comfortable tents, Moroccan cuisine, camel rides, 4x4 desert excursions and starry nights.",
       "telephone": "+212661175228",
@@ -39,10 +40,26 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "Where is Ousaadi camp located?", a: "In the Merzouga desert in south-eastern Morocco, at the foot of the Erg Chebbi dunes." },
+  { q: "What activities does the camp offer?", a: "Camel treks, 4x4 excursions, sandboarding, quad biking, sunsets over the dunes, campfires and evenings under the stars." },
+  { q: "What is the best time to visit the Merzouga desert?", a: "Spring and autumn bring pleasant temperatures. Summer days are very hot and winter nights are cool, but the sky is often spectacular." },
+  { q: "How do I book?", a: "Directly on WhatsApp: just send us your dates and the number of travellers." },
+  { q: "Is the food at the camp Moroccan?", a: "Yes, meals are traditional Moroccan cuisine." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function HomePageEn() {
   return (
     <div className="pg-home" id="top">
+      <link rel="preload" as="image" href="/images/home-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16zM12 20v-8M8 20l4-8 4 8" /></symbol>
@@ -97,9 +114,15 @@ export default function HomePageEn() {
       <div><svg className="i"><use href="#suv" /></svg>4x4 Excursions</div>
       <div><svg className="i"><use href="#star" /></svg>Starry Skies</div>
       </section>
+      <section className="seo rv">
+      <h2>Ousaadi Luxury Desert Camp, your luxury desert camp in Merzouga</h2>
+      <p>Ousaadi is a luxury desert camp in Merzouga, in south-eastern Morocco, facing the great Erg Chebbi dunes. Here the comfort of a carefully kept camp meets the authenticity of the Moroccan Sahara: elegant tents, Moroccan cuisine prepared on site, camel treks at sunset and nights under an exceptionally clear starry sky.</p>
+      <p>Whether you travel as a couple, with family or with friends, our team welcomes you with true Moroccan hospitality and takes care of every detail, so that your stay in the Merzouga desert becomes a lasting memory.</p>
+      </section>
       <section className="hb rv" id="accommodation">
       <div><div className="ln"></div><h3 className="t">Our Accommodation in Merzouga</h3>
       <p>Elegant, comfortable luxury tents for an authentic stay in the Merzouga desert.</p>
+      <p className="txt">The camp offers luxury tents, traditional tents and premium tents, all designed to combine comfort with the atmosphere of the desert: well-kept beds, Moroccan decor and lanterns that light up as night falls. Each type of tent has its own character, so you can choose the one that suits your trip.</p>
       <Link className="btn wine" href="/en/luxury-tents-merzouga" style={{fontSize:"14px",padding:"10px 20px"}}>See the Tents <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></Link></div>
       <div className="rooms">
       <div className="ph"><Image src="/images/tente-de-luxe-avec-lits-blancs-et-lanterne-a-merzouga.webp" width={420} height={390} sizes="(max-width: 1000px) 100vw, 50vw" alt="Luxury tent with white beds and a lantern in Merzouga" /></div>
@@ -111,6 +134,7 @@ export default function HomePageEn() {
       <i className="orn tl" style={{top:"-40px"}}></i><i className="orn tr" style={{top:"-40px"}}></i>
       <h3 className="t">Merzouga Desert Excursions &amp; Experiences</h3>
       <p>Camel treks, 4x4 desert excursions across the Erg Chebbi dunes, campfires and starry nights</p>
+      <p className="txt">The Merzouga desert can be enjoyed in many ways. Ride a camel towards the Erg Chebbi dunes at golden hour, set off on a 4x4 excursion across the tracks and landscapes of the Sahara, glide down the dunes on a sandboard or try quad biking. In the evening, gather around the campfire for a friendly night under the stars.</p>
       <h4 className="sr">Merzouga photos: our camp and the desert</h4>
       <div className="gal" id="gallery">
       <div className="ph"><Image src="/images/balade-a-dromadaire-au-coucher-du-soleil-dans-le-desert-de-merzouga.webp" width={474} height={274} sizes="(max-width: 1000px) 100vw, 50vw" alt="Camel trek at sunset in the Merzouga desert" /></div>
@@ -123,11 +147,21 @@ export default function HomePageEn() {
       <i className="orn tl"></i><i className="orn br" style={{bottom:"0"}}></i>
       <div><h3 className="t">Why Choose OUSAADI in Merzouga?</h3><p>Your luxury Merzouga desert camp: an authentic experience and a warm welcome</p></div>
       <ul>
-      <li><svg className="i"><use href="#gem" /></svg>Comfort<br />&amp; Elegance</li>
-      <li><svg className="i"><use href="#shield" /></svg>Moroccan<br />Authenticity</li>
-      <li><svg className="i"><use href="#snow" /></svg>Preserved<br />Nature</li>
-      <li><svg className="i"><use href="#heart" /></svg>Exceptional<br />Hospitality</li>
+      <li><svg className="i"><use href="#gem" /></svg>Comfort<br />&amp; Elegance<span className="d">Comfortable luxury tents and refined Moroccan decor in the heart of the desert.</span></li>
+      <li><svg className="i"><use href="#shield" /></svg>Moroccan<br />Authenticity<span className="d">Traditional cuisine, tents inspired by Berber ways of living and moments shared around the fire.</span></li>
+      <li><svg className="i"><use href="#snow" /></svg>Preserved<br />Nature<span className="d">Dunes as far as the eye can see, the silence of the Sahara and a starry sky far from light pollution.</span></li>
+      <li><svg className="i"><use href="#heart" /></svg>Exceptional<br />Hospitality<span className="d">An attentive team, from your first WhatsApp message until you leave.</span></li>
       </ul>
+      </section>
+      <section className="seo rv" id="booking">
+      <h2>How to book your stay in Merzouga</h2>
+      <p>Booking at Ousaadi camp is simple: message us on WhatsApp with your dates, the number of people and the activities you are interested in. We reply with availability and prices, then arrange your arrival in Merzouga.</p>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Frequently asked questions about the Merzouga desert camp</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       <section className="cta" id="contact">
       <h3>Book your Merzouga desert camp stay now</h3><p>and live an unforgettable adventure in the Merzouga desert</p>

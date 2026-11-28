@@ -6,11 +6,11 @@ import { SITE, wa } from '@/lib/site'
 import '@/styles/contact.css'
 
 export const metadata: Metadata = {
-  title: { absolute: "Reservar Campamento en Merzouga | Contacto y Reservas — Ousaadi" },
-  description: "Reserve su campamento en Merzouga con Ousaadi: contáctenos por WhatsApp en el +212 661 175 228. Campamento de lujo en el desierto de Merzouga, abierto todos los días, 24 h.",
-  alternates: { canonical: "/es/reservar-merzouga", languages: { fr: "/reservation-merzouga", en: "/en/book-merzouga", es: "/es/reservar-merzouga", ar: "/ar/book-merzouga", 'x-default': "/contact" } },
-  openGraph: { title: "Reservar Campamento en Merzouga | Contacto y Reservas — Ousaadi", description: "Reserve su campamento en Merzouga con Ousaadi: contáctenos por WhatsApp en el +212 661 175 228. Campamento de lujo en el desierto de Merzouga, abierto todos los días, 24 h.", url: "/es/reservar-merzouga", siteName: SITE.name, locale: 'es_ES', type: 'website' },
-  twitter: { card: 'summary_large_image', title: "Reservar Campamento en Merzouga | Contacto y Reservas — Ousaadi", description: "Reserve su campamento en Merzouga con Ousaadi: contáctenos por WhatsApp en el +212 661 175 228. Campamento de lujo en el desierto de Merzouga, abierto todos los días, 24 h." },
+  title: { absolute: "Reservar Campamento en Merzouga | Contacto — Ousaadi" },
+  description: "Reserve su campamento en Merzouga con Ousaadi por WhatsApp (+212 661 175 228). Campamento de lujo en el desierto, abierto todos los días, 24 h.",
+  alternates: { canonical: "/es/reservar-merzouga", languages: { fr: "/reservation-merzouga", en: "/en/book-merzouga", es: "/es/reservar-merzouga", ar: "/ar/book-merzouga", 'x-default': "/reservation-merzouga" } },
+  openGraph: { title: "Reservar Campamento en Merzouga | Contacto — Ousaadi", description: "Reserve su campamento en Merzouga con Ousaadi por WhatsApp (+212 661 175 228). Campamento de lujo en el desierto, abierto todos los días, 24 h.", url: "/es/reservar-merzouga", siteName: SITE.name, locale: 'es_ES', type: 'website' },
+  twitter: { card: 'summary_large_image', title: "Reservar Campamento en Merzouga | Contacto — Ousaadi", description: "Reserve su campamento en Merzouga con Ousaadi por WhatsApp (+212 661 175 228). Campamento de lujo en el desierto, abierto todos los días, 24 h." },
 }
 
 const jsonLd = {
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/contact-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Campamento de lujo en Merzouga, Marruecos: jaimas confortables, cocina marroquí, paseos en camello, excursiones en 4x4 y noches estrelladas.",
       "telephone": "+212661175228",
@@ -56,7 +57,7 @@ const jsonLd = {
     },
     {
       "@type": "ContactPage",
-      "name": "Reservar Campamento en Merzouga | Contacto y Reservas — Ousaadi",
+      "name": "Reservar Campamento en Merzouga | Contacto — Ousaadi",
       "url": "https://osaadiluxurydesertcamp.com/es/reservar-merzouga",
       "inLanguage": "es"
     },
@@ -80,10 +81,27 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "¿Cómo se reserva el campamento Ousaadi?", a: "Lo más sencillo es escribirnos por WhatsApp al +212 661 175 228 indicando las fechas y el número de personas." },
+  { q: "¿Cómo puedo contactarles?", a: "Por WhatsApp o por teléfono en el +212 661 175 228, o por correo electrónico en osaadiluxurydesertcamp@gmail.com." },
+  { q: "¿Están disponibles todos los días?", a: "Sí, estamos disponibles todos los días, las 24 horas." },
+  { q: "¿Dónde está el campamento y cómo se llega?", a: "Nuestro campamento está en Merzouga, en el corazón del desierto marroquí, cerca de las grandes dunas, y es de fácil acceso en coche desde Erfoud." },
+  { q: "¿Qué debo indicar en mi solicitud de reserva?", a: "Sus fechas, el número de personas, el tipo de jaima que desea (de lujo, tradicional o premium) y las actividades que le interesan." },
+  { q: "¿Puedo reservar actividades junto con mi jaima?", a: "Sí, indíquenos las actividades que desea (camello, 4x4, sandboard, velada alrededor del fuego…) y las incluiremos en su estancia." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function ContactoPageEs() {
   return (
     <div className="pg-contact" id="top">
+      <link rel="preload" as="image" href="/images/contact-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 96 42"><path d="M2 38 22 20l8 8 14-22 12 18 8-8 8 14 6-4 16 14z M44 6l-4 7 4-2 4 4 3-6zM56 24l4-5 5 5" fill="none" stroke="currentColor" /></symbol>
       <symbol id="wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.700 13.600L3 21l4.500-1.200A9 9 0 1 0 12 3z" /><path d="M9 7.800c-.6 1 0 3 2 5s4 2.600 5.200 2l.4-1.600-2-1-1 .8c-1-.4-2-1.400-2.400-2.400l.8-1z" fill="currentColor" stroke="none" /></symbol>
@@ -121,6 +139,11 @@ export default function ContactoPageEs() {
       <p>Su aventura en el desierto de Merzouga comienza aquí…</p><div className="hl"><i></i></div>
       <a className="btn gold" target="_blank" rel="noopener" aria-label="Reservar campamento en Merzouga por WhatsApp" href={wa("Hola, me gustaría reservar una estancia en el campamento Ousaadi en Merzouga.")}><svg className="i"><use href="#wa" /></svg>Reservar por WhatsApp <svg className="i" style={{fontSize:"18px"}}><use href="#rt" /></svg></a></div>
       </section>
+      <section className="seo rv">
+      <h2>Reservar su estancia en el campamento Ousaadi en Merzouga</h2>
+      <p>Para reservar en el campamento Ousaadi, lo más sencillo es escribirnos por WhatsApp. Estamos disponibles todos los días, las 24 horas: indíquenos sus fechas, el número de personas, el tipo de jaima (de lujo, tradicional o premium) y las actividades que le interesan.</p>
+      <p>Le respondemos con la disponibilidad y las tarifas, y después organizamos su llegada al desierto de Merzouga.</p>
+      </section>
       <section className="info rv">
       <div><h2>Nuestra información</h2><div className="dl"><i></i></div>
       <div className="row"><div className="ic"><svg className="i"><use href="#pin" /></svg></div><div><b>Nuestra ubicación</b><span>Merzouga, Marruecos</span></div></div>
@@ -141,6 +164,20 @@ export default function ContactoPageEs() {
       <p>Nuestro campamento se encuentra en Merzouga, en el corazón del desierto marroquí, y es de fácil acceso desde Erfoud.</p>
       <ul><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Cerca de las grandes dunas</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Fácil acceso en coche</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Cálida bienvenida en el lugar</li></ul></div>
       <div className="lant" aria-hidden="true"></div>
+      </section>
+      <section className="seo choose rv">
+      <h2>Cómo reservar su campamento en Merzouga en 3 pasos</h2>
+      <div className="cols">
+      <article><h3>1. Escríbanos</h3><p>Contáctenos por WhatsApp, por teléfono o por correo electrónico, todos los días, las 24 horas.</p></article>
+      <article><h3>2. Cuéntenos su estancia</h3><p>Indíquenos sus fechas, el número de viajeros, el tipo de jaima que desea y las actividades que le apetecen.</p></article>
+      <article><h3>3. Prepare su llegada</h3><p>Le respondemos con la disponibilidad y las tarifas, y organizamos su llegada a Merzouga.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Preguntas frecuentes sobre la reserva en Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

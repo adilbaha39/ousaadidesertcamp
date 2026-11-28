@@ -8,7 +8,7 @@ import '@/styles/hebergement-ar.css'
 export const metadata: Metadata = {
   title: { absolute: "مخيم فاخر في مرزوكة | خيام فاخرة — Ousaadi" },
   description: "أقم في Ousaadi، مخيم فاخر في مرزوكة: خيام فاخرة وتقليدية وبريميوم بأسرّة مريحة وإطلالات على الصحراء. احجز عبر واتساب.",
-  alternates: { canonical: "/ar/luxury-tents-merzouga", languages: { fr: "/tentes-de-luxe-merzouga", en: "/en/luxury-tents-merzouga", es: "/es/tiendas-de-lujo-merzouga", ar: "/ar/luxury-tents-merzouga", 'x-default': "/hebergement" } },
+  alternates: { canonical: "/ar/luxury-tents-merzouga", languages: { fr: "/tentes-de-luxe-merzouga", en: "/en/luxury-tents-merzouga", es: "/es/tiendas-de-lujo-merzouga", ar: "/ar/luxury-tents-merzouga", 'x-default': "/tentes-de-luxe-merzouga" } },
   openGraph: { title: "مخيم فاخر في مرزوكة | خيام فاخرة — Ousaadi", description: "أقم في Ousaadi، مخيم فاخر في مرزوكة: خيام فاخرة وتقليدية وبريميوم بأسرّة مريحة وإطلالات على الصحراء. احجز عبر واتساب.", url: "/ar/luxury-tents-merzouga", siteName: SITE.name, locale: 'ar_AR', type: 'website' },
   twitter: { card: 'summary_large_image', title: "مخيم فاخر في مرزوكة | خيام فاخرة — Ousaadi", description: "أقم في Ousaadi، مخيم فاخر في مرزوكة: خيام فاخرة وتقليدية وبريميوم بأسرّة مريحة وإطلالات على الصحراء. احجز عبر واتساب." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/hebergement-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "مخيم صحراوي فاخر في مرزوكة، المغرب: خيام مريحة ومطبخ مغربي وجولات على الجمال ورحلات 4x4 وليالٍ مرصعة بالنجوم.",
       "telephone": "+212661175228",
@@ -56,10 +57,26 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "ما أنواع الخيام التي يقدمها مخيم Ousaadi؟", a: "ثلاثة أنواع: الخيام الفاخرة، والخيام التقليدية، وخيام بريميوم." },
+  { q: "أي خيمة تناسب العائلة؟", a: "الخيام التقليدية، فهي واسعة ومثالية للعائلات. راسلونا عبر واتساب لتأكيد السعة حسب مجموعتكم." },
+  { q: "هل تتوفر الخيام على حمام؟", a: "نعم، الحمام خاص أو مشترك حسب الخيمة. اسألونا عن التجهيز الذي يناسب إقامتكم." },
+  { q: "أين تقع الخيام؟", a: "في مخيمنا، في قلب صحراء مرزوكة جنوب شرق المغرب، قرب كثبان عرق الشبي." },
+  { q: "كيف أحجز خيمة؟", a: "عبر واتساب: أخبرونا بالتواريخ وعدد الأشخاص ونوع الخيمة المطلوب." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function AccommodationPageAr() {
   return (
     <div className="pg-hebergement-ar" id="top">
+      <link rel="preload" as="image" href="/images/hebergement-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16zM12 20v-8M8 20l4-8 4 8" /></symbol>
@@ -101,6 +118,11 @@ export default function AccommodationPageAr() {
       <div className="hero-txt"><h1>مخيم فاخر في مرزوكة</h1><div className="hl"><i></i></div>
       <p>خيام مريحة وأنيقة لإقامة لا تُنسى في مخيمنا الفاخر، في قلب الصحراء المغربية.</p></div>
       </section>
+      <section className="seo rv">
+      <h2>خيام فاخرة للمبيت في صحراء مرزوكة</h2>
+      <p>في مخيم Ousaadi يمكنكم الاختيار بين ثلاثة أنواع من الخيام: الفاخرة والتقليدية وبريميوم. جميعها في مخيمنا الفاخر بمرزوكة، عند أقدام كثبان عرق الشبي، وقد صُمّمت لتمنحكم أسرّة مريحة وحمامًا وأجواء الصحراء المغربية الفريدة.</p>
+      <p>سواء كنتم تبحثون عن أقصى درجات الراحة، أو تجربة أكثر تقليدية، أو أجواء أكثر تميزًا، فهناك خيمة تناسب إقامتكم. راسلونا عبر واتساب ونساعدكم على الاختيار حسب تواريخكم وعدد المسافرين.</p>
+      </section>
       <section className="rows">
       <i className="orn tr" style={{top:"25%"}}></i><i className="orn tr" style={{top:"68%",height:"clamp(110px,17vw,230px)"}}></i><i className="orn tl" style={{top:"38%",opacity:".3"}}></i>
       <article className="row rv">
@@ -126,12 +148,26 @@ export default function AccommodationPageAr() {
       <a className="btn wine more" target="_blank" rel="noopener" href={wa("مرحبًا، أودّ الحصول على مزيد من المعلومات عن خيام بريميوم.")}>اعرف المزيد <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></a></div>
       </article>
       </section>
+      <section className="seo choose rv">
+      <h2>أي خيمة تختارون في مرزوكة؟</h2>
+      <div className="cols">
+      <article><h3>الخيمة الفاخرة</h3><p>واسعة ومزينة بطابع مغربي أصيل، وتوفر أسرّة مريحة وحمامًا (خاصًا أو مشتركًا). هي الخيار المناسب إذا كانت الراحة أولويتكم.</p></article>
+      <article><h3>الخيمة التقليدية</h3><p>تجمع بين البساطة والسحر المغربي في مساحة واسعة بإطلالة على الصحراء. مثالية للعائلات، وتغمركم بأصالة صحراء مرزوكة.</p></article>
+      <article><h3>خيمة بريميوم</h3><p>بتصميمها الأنيق وأجوائها الفريدة، صُمّمت لتجربة تجمع بين الفخامة والطبيعة، مع راحة عالية.</p></article>
+      </div>
+      </section>
       <section className="eq rv"><i className="orn tl"></i><i className="orn tr"></i>
       <h3>التجهيزات والراحة</h3>
       <ul>
       <li><svg className="i"><use href="#bed" /></svg>أسرّة مريحة</li>
       <li><svg className="i"><use href="#shower" /></svg>حمام</li>
       </ul>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>أسئلة شائعة حول خيامنا في مرزوكة</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       <section className="cta" id="contact">
       <h3>احجز إقامتك الآن</h3><p>وعش تجربة صحراوية لا تُنسى في مرزوكة</p>

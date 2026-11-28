@@ -6,6 +6,8 @@ export const SITE = {
   email: 'osaadiluxurydesertcamp@gmail.com',
 }
 
+export const LAST_MOD = '2026-11-28'
+
 export const wa = (msg: string) => `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(msg)}`
 
 export const routes = ['/', '/tentes-de-luxe-merzouga', '/excursions-merzouga', '/photos-merzouga', '/merzouga-luxury-desert-camp', '/reservation-merzouga', '/en', '/en/luxury-tents-merzouga', '/en/excursions-merzouga', '/en/photos-merzouga', '/en/merzouga-luxury-desert-camp', '/en/book-merzouga', '/es', '/es/tiendas-de-lujo-merzouga', '/es/excursiones-merzouga', '/es/fotos-merzouga', '/es/campamento-lujo-merzouga', '/es/reservar-merzouga', '/ar', '/ar/luxury-tents-merzouga', '/ar/excursions-merzouga', '/ar/photos-merzouga', '/ar/merzouga-luxury-desert-camp', '/ar/book-merzouga']

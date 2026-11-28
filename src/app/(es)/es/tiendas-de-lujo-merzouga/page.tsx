@@ -8,7 +8,7 @@ import '@/styles/hebergement.css'
 export const metadata: Metadata = {
   title: { absolute: "Campamento de Lujo en Merzouga | Jaimas de Lujo — Ousaadi" },
   description: "Alójese en Ousaadi, campamento de lujo en Merzouga: jaimas de lujo, tradicionales y premium con camas confortables y vistas al desierto. Reserve por WhatsApp.",
-  alternates: { canonical: "/es/tiendas-de-lujo-merzouga", languages: { fr: "/tentes-de-luxe-merzouga", en: "/en/luxury-tents-merzouga", es: "/es/tiendas-de-lujo-merzouga", ar: "/ar/luxury-tents-merzouga", 'x-default': "/hebergement" } },
+  alternates: { canonical: "/es/tiendas-de-lujo-merzouga", languages: { fr: "/tentes-de-luxe-merzouga", en: "/en/luxury-tents-merzouga", es: "/es/tiendas-de-lujo-merzouga", ar: "/ar/luxury-tents-merzouga", 'x-default': "/tentes-de-luxe-merzouga" } },
   openGraph: { title: "Campamento de Lujo en Merzouga | Jaimas de Lujo — Ousaadi", description: "Alójese en Ousaadi, campamento de lujo en Merzouga: jaimas de lujo, tradicionales y premium con camas confortables y vistas al desierto. Reserve por WhatsApp.", url: "/es/tiendas-de-lujo-merzouga", siteName: SITE.name, locale: 'es_ES', type: 'website' },
   twitter: { card: 'summary_large_image', title: "Campamento de Lujo en Merzouga | Jaimas de Lujo — Ousaadi", description: "Alójese en Ousaadi, campamento de lujo en Merzouga: jaimas de lujo, tradicionales y premium con camas confortables y vistas al desierto. Reserve por WhatsApp." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/hebergement-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Campamento de lujo en Merzouga, Marruecos: jaimas confortables, cocina marroquí, paseos en camello, excursiones en 4x4 y noches estrelladas.",
       "telephone": "+212661175228",
@@ -56,10 +57,26 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "¿Qué tipos de jaimas ofrece el campamento Ousaadi?", a: "Tres tipos: jaimas de lujo, jaimas tradicionales y jaimas premium." },
+  { q: "¿Qué jaima elegir para una familia?", a: "Las jaimas tradicionales, amplias e ideales para familias. Contáctenos por WhatsApp para confirmar la capacidad según su grupo." },
+  { q: "¿Las jaimas tienen baño?", a: "Sí, el baño es privado o compartido según la jaima. Pregúntenos qué configuración encaja con su estancia." },
+  { q: "¿Dónde están las jaimas?", a: "En nuestro campamento, en el corazón del desierto de Merzouga, en el sureste de Marruecos, cerca de las dunas del Erg Chebbi." },
+  { q: "¿Cómo se reserva una jaima?", a: "Por WhatsApp: indíquenos las fechas, el número de personas y el tipo de jaima que desea." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function AlojamientoPageEs() {
   return (
     <div className="pg-hebergement" id="top">
+      <link rel="preload" as="image" href="/images/hebergement-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16zM12 20v-8M8 20l4-8 4 8" /></symbol>
@@ -101,6 +118,11 @@ export default function AlojamientoPageEs() {
       <div className="hero-txt"><h1>Campamento de Lujo en Merzouga</h1><div className="hl"><i></i></div>
       <p>Jaimas confortables y elegantes para una estancia inolvidable en nuestro campamento de lujo, en el corazón del Sahara marroquí.</p></div>
       </section>
+      <section className="seo rv">
+      <h2>Jaimas de lujo para dormir en el desierto de Merzouga</h2>
+      <p>En el campamento Ousaadi puede elegir entre tres tipos de jaimas: de lujo, tradicionales y premium. Todas están en nuestro campamento de lujo en Merzouga, a los pies de las dunas del Erg Chebbi, y están pensadas para ofrecerle camas confortables, baño y el ambiente único del desierto marroquí.</p>
+      <p>Tanto si busca el máximo confort, una experiencia más tradicional o un ambiente más exclusivo, hay una jaima para su estancia. Escríbanos por WhatsApp y le ayudamos a elegir según sus fechas y el número de viajeros.</p>
+      </section>
       <section className="rows">
       <i className="orn tr" style={{top:"25%"}}></i><i className="orn tr" style={{top:"68%",height:"clamp(110px,17vw,230px)"}}></i><i className="orn tl" style={{top:"38%",opacity:".3"}}></i>
       <article className="row rv">
@@ -126,12 +148,26 @@ export default function AlojamientoPageEs() {
       <a className="btn wine more" target="_blank" rel="noopener" href={wa("Hola, me gustaría recibir más información sobre las Jaimas Premium.")}>Saber más <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></a></div>
       </article>
       </section>
+      <section className="seo choose rv">
+      <h2>¿Qué jaima elegir en Merzouga?</h2>
+      <div className="cols">
+      <article><h3>Jaima de lujo</h3><p>Amplia y decorada en un auténtico estilo marroquí, ofrece camas confortables y baño (privado o compartido). Es la elección acertada si el confort es su prioridad.</p></article>
+      <article><h3>Jaima tradicional</h3><p>Combina sencillez y encanto marroquí en un espacio amplio con vistas al desierto. Ideal para familias, le sumerge en la autenticidad del desierto de Merzouga.</p></article>
+      <article><h3>Jaima premium</h3><p>De diseño elegante y ambiente único, está pensada para una experiencia entre el lujo y la naturaleza, con gran confort.</p></article>
+      </div>
+      </section>
       <section className="eq rv"><i className="orn tl"></i><i className="orn tr"></i>
       <h3>Equipamiento &amp; Confort</h3>
       <ul>
       <li><svg className="i"><use href="#bed" /></svg>Camas confortables</li>
       <li><svg className="i"><use href="#shower" /></svg>Baño</li>
       </ul>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Preguntas frecuentes sobre nuestras jaimas en Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       <section className="cta" id="contact">
       <h3>Reserve su estancia ahora</h3><p>y viva una inolvidable experiencia en el desierto de Merzouga</p>

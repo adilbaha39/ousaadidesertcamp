@@ -8,7 +8,7 @@ import '@/styles/contact.css'
 export const metadata: Metadata = {
   title: { absolute: "Book Merzouga Luxury Desert Camp | Contact Ousaadi" },
   description: "Book Merzouga desert camp with Ousaadi: contact us on WhatsApp at +212 661 175 228. Luxury desert camp in Merzouga, Morocco, open every day, 24/7.",
-  alternates: { canonical: "/en/book-merzouga", languages: { fr: "/reservation-merzouga", en: "/en/book-merzouga", es: "/es/reservar-merzouga", ar: "/ar/book-merzouga", 'x-default': "/contact" } },
+  alternates: { canonical: "/en/book-merzouga", languages: { fr: "/reservation-merzouga", en: "/en/book-merzouga", es: "/es/reservar-merzouga", ar: "/ar/book-merzouga", 'x-default': "/reservation-merzouga" } },
   openGraph: { title: "Book Merzouga Luxury Desert Camp | Contact Ousaadi", description: "Book Merzouga desert camp with Ousaadi: contact us on WhatsApp at +212 661 175 228. Luxury desert camp in Merzouga, Morocco, open every day, 24/7.", url: "/en/book-merzouga", siteName: SITE.name, locale: 'en_US', type: 'website' },
   twitter: { card: 'summary_large_image', title: "Book Merzouga Luxury Desert Camp | Contact Ousaadi", description: "Book Merzouga desert camp with Ousaadi: contact us on WhatsApp at +212 661 175 228. Luxury desert camp in Merzouga, Morocco, open every day, 24/7." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/contact-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Luxury desert camp in Merzouga, Morocco: comfortable tents, Moroccan cuisine and desert experiences.",
       "telephone": "+212661175228",
@@ -80,10 +81,27 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "How do I book Ousaadi camp?", a: "The easiest way is to message us on WhatsApp at +212 661 175 228 with your dates and the number of people." },
+  { q: "How can I contact you?", a: "On WhatsApp or by phone at +212 661 175 228, or by email at osaadiluxurydesertcamp@gmail.com." },
+  { q: "Are you reachable every day?", a: "Yes, we are available every day, 24 hours a day." },
+  { q: "Where is the camp and how do I get there?", a: "Our camp is in Merzouga, in the heart of the Moroccan desert, close to the great dunes, and it is easily reached by car from Erfoud." },
+  { q: "What should I include in my booking request?", a: "Your dates, the number of people, the type of tent you would like (luxury, traditional or premium) and the activities you are interested in." },
+  { q: "Can I book activities together with my tent?", a: "Yes, tell us which activities you would like (camel trek, 4x4, sandboarding, campfire evening…) and we will include them in your stay." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function ContactPageEn() {
   return (
     <div className="pg-contact" id="top">
+      <link rel="preload" as="image" href="/images/contact-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 96 42"><path d="M2 38 22 20l8 8 14-22 12 18 8-8 8 14 6-4 16 14z M44 6l-4 7 4-2 4 4 3-6zM56 24l4-5 5 5" fill="none" stroke="currentColor" /></symbol>
       <symbol id="wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.700 13.600L3 21l4.500-1.200A9 9 0 1 0 12 3z" /><path d="M9 7.800c-.6 1 0 3 2 5s4 2.600 5.200 2l.4-1.600-2-1-1 .8c-1-.4-2-1.400-2.400-2.400l.8-1z" fill="currentColor" stroke="none" /></symbol>
@@ -121,6 +139,11 @@ export default function ContactPageEn() {
       <p>Your adventure in the Merzouga desert starts here…</p><div className="hl"><i></i></div>
       <a className="btn gold" target="_blank" rel="noopener" aria-label="Book Merzouga desert camp on WhatsApp" href={wa("Hello, I would like to book a stay at Ousaadi desert camp in Merzouga.")}><svg className="i"><use href="#wa" /></svg>Book on WhatsApp <svg className="i" style={{fontSize:"18px"}}><use href="#rt" /></svg></a></div>
       </section>
+      <section className="seo rv">
+      <h2>Book your stay at Ousaadi camp in Merzouga</h2>
+      <p>The easiest way to book at Ousaadi camp is to message us on WhatsApp. We are available every day, 24 hours a day: tell us your dates, the number of people, the type of tent (luxury, traditional or premium) and the activities you are interested in.</p>
+      <p>We reply with availability and prices, then arrange your arrival in the Merzouga desert.</p>
+      </section>
       <section className="info rv">
       <div><h2>Our Information</h2><div className="dl"><i></i></div>
       <div className="row"><div className="ic"><svg className="i"><use href="#pin" /></svg></div><div><b>Our Location</b><span>Merzouga, Morocco</span></div></div>
@@ -141,6 +164,20 @@ export default function ContactPageEn() {
       <p>Our camp is located in Merzouga, in the heart of the Moroccan desert, easily accessible from Erfoud.</p>
       <ul><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Close to the big dunes</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Easy access by car</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>Warm welcome on site</li></ul></div>
       <div className="lant" aria-hidden="true"></div>
+      </section>
+      <section className="seo choose rv">
+      <h2>How to book your Merzouga desert camp in 3 steps</h2>
+      <div className="cols">
+      <article><h3>1. Message us</h3><p>Contact us on WhatsApp, by phone or by email, every day, 24 hours a day.</p></article>
+      <article><h3>2. Tell us about your stay</h3><p>Give us your dates, the number of travellers, the type of tent you would like and the activities that appeal to you.</p></article>
+      <article><h3>3. Get ready to arrive</h3><p>We reply with availability and prices, then arrange your arrival in Merzouga.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Frequently asked questions about booking in Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

@@ -6,11 +6,11 @@ import { SITE, wa } from '@/lib/site'
 import '@/styles/experiences.css'
 
 export const metadata: Metadata = {
-  title: { absolute: "Excursión Desierto de Merzouga: Camello, 4x4 y Sandboard | Ousaadi" },
+  title: { absolute: "Excursión Desierto de Merzouga: Camello y 4x4 | Ousaadi" },
   description: "Reserve su excursión por el desierto de Merzouga con Ousaadi: paseo en camello, 4x4 por las dunas del Erg Chebbi, sandboard, atardecer y noches de estrellas.",
-  alternates: { canonical: "/es/excursiones-merzouga", languages: { fr: "/excursions-merzouga", en: "/en/excursions-merzouga", es: "/es/excursiones-merzouga", ar: "/ar/excursions-merzouga", 'x-default': "/experiences" } },
-  openGraph: { title: "Excursión Desierto de Merzouga: Camello, 4x4 y Sandboard | Ousaadi", description: "Reserve su excursión por el desierto de Merzouga con Ousaadi: paseo en camello, 4x4 por las dunas del Erg Chebbi, sandboard, atardecer y noches de estrellas.", url: "/es/excursiones-merzouga", siteName: SITE.name, locale: 'es_ES', type: 'website' },
-  twitter: { card: 'summary_large_image', title: "Excursión Desierto de Merzouga: Camello, 4x4 y Sandboard | Ousaadi", description: "Reserve su excursión por el desierto de Merzouga con Ousaadi: paseo en camello, 4x4 por las dunas del Erg Chebbi, sandboard, atardecer y noches de estrellas." },
+  alternates: { canonical: "/es/excursiones-merzouga", languages: { fr: "/excursions-merzouga", en: "/en/excursions-merzouga", es: "/es/excursiones-merzouga", ar: "/ar/excursions-merzouga", 'x-default': "/excursions-merzouga" } },
+  openGraph: { title: "Excursión Desierto de Merzouga: Camello y 4x4 | Ousaadi", description: "Reserve su excursión por el desierto de Merzouga con Ousaadi: paseo en camello, 4x4 por las dunas del Erg Chebbi, sandboard, atardecer y noches de estrellas.", url: "/es/excursiones-merzouga", siteName: SITE.name, locale: 'es_ES', type: 'website' },
+  twitter: { card: 'summary_large_image', title: "Excursión Desierto de Merzouga: Camello y 4x4 | Ousaadi", description: "Reserve su excursión por el desierto de Merzouga con Ousaadi: paseo en camello, 4x4 por las dunas del Erg Chebbi, sandboard, atardecer y noches de estrellas." },
 }
 
 const jsonLd = {
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/experiences-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Campamento de lujo en Merzouga, Marruecos: jaimas confortables, cocina marroquí, paseos en camello, excursiones en 4x4 y noches estrelladas.",
       "telephone": "+212661175228",
@@ -49,17 +50,34 @@ const jsonLd = {
     },
     {
       "@type": "WebPage",
-      "name": "Excursión Desierto de Merzouga: Camello, 4x4 y Sandboard | Ousaadi",
+      "name": "Excursión Desierto de Merzouga: Camello y 4x4 | Ousaadi",
       "url": "https://osaadiluxurydesertcamp.com/es/excursiones-merzouga",
       "inLanguage": "es"
     }
   ]
 }
 
+const faq = [
+  { q: "¿Qué actividades se pueden hacer en el desierto de Merzouga con Ousaadi?", a: "Paseo en camello, excursión en 4x4 por el Erg Chebbi, sandboard, puesta de sol, observación de estrellas y velada alrededor del fuego." },
+  { q: "¿Cómo se reserva una excursión?", a: "Por WhatsApp: indíquenos las fechas, el número de personas y las actividades que le interesan." },
+  { q: "¿Cuál es el mejor momento para el paseo en camello?", a: "Muchos viajeros lo eligen al atardecer, cuando la luz dorada sobre las dunas es más hermosa. Pregúntenos el horario que mejor encaja con su estancia." },
+  { q: "¿Se pueden ver las estrellas desde el campamento?", a: "Sí, el campamento está en pleno desierto, lejos de la contaminación lumínica, lo que ofrece un cielo estrellado excepcional." },
+  { q: "¿La comida del campamento es marroquí?", a: "Sí: cocina marroquí preparada con esmero, té de menta y comidas al aire libre." },
+  { q: "¿Dónde se realizan las excursiones?", a: "En el desierto de Merzouga, sobre las dunas del Erg Chebbi, en el sureste de Marruecos." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function ExperienciasPageEs() {
   return (
     <div className="pg-experiences" id="top">
+      <link rel="preload" as="image" href="/images/experiences-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="camel" viewBox="0 0 24 24"><path d="M2 21v-6l2-1 1-5 3 3 3-1 2-5 3 1 1 4 4 2v8h-1.500v-6l-1.500-.5V21H15v-5H9v5H7.500v-5L5 16v5z" fill="currentColor" stroke="none" /></symbol>
@@ -100,6 +118,11 @@ export default function ExperienciasPageEs() {
       <div className="hero-txt"><h1>Excursión por el Desierto de Merzouga</h1>
       <p>Viva momentos inolvidables en el corazón del Sahara</p><div className="hl"><i></i></div></div>
       </section>
+      <section className="seo rv">
+      <h2>Excursiones y actividades en el desierto de Merzouga</h2>
+      <p>En el campamento Ousaadi, el desierto de Merzouga se vive del día a la noche: paseo en camello por las dunas doradas, excursión en 4x4 por el Erg Chebbi, sandboard, puesta de sol, observación de estrellas y velada alrededor del fuego. Cada actividad se reserva fácilmente como parte de su estancia en el campamento.</p>
+      <p>Escríbanos por WhatsApp indicando sus fechas, el número de personas y las actividades que desea, y organizaremos su programa.</p>
+      </section>
       <section className="cards" aria-label="Actividades en el desierto de Merzouga">
       <i className="orn tl" style={{top:"-10px"}}></i><i className="orn tr" style={{top:"-10px"}}></i>
       <a className="card rv" target="_blank" rel="noopener" href={wa("Hola, me gustaría reservar un paseo en camello en Merzouga.")}><div className="in"><Image src="/images/balade-a-dos-de-dromadaire-dans-les-dunes-de-merzouga.webp" width={580} height={310} sizes="(max-width: 1000px) 100vw, 50vw" alt="Paseo en camello por las dunas de Merzouga" />
@@ -123,6 +146,23 @@ export default function ExperienciasPageEs() {
       <a className="btn wine more" target="_blank" rel="noopener" href={wa("Hola, me gustaría saber más sobre la cocina marroquí del campamento Ousaadi en Merzouga.")}>Descubra nuestra cocina <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></a></div>
       <div className="lant" aria-hidden="true"></div>
       <i className="orn bl" style={{bottom:"-20px",right:"0",left:"auto",transform:"scale(-1)"}}></i>
+      </section>
+      <section className="seo choose rv">
+      <h2>Nuestras actividades en el desierto de Merzouga</h2>
+      <div className="cols">
+      <article><h3>Paseo en camello</h3><p>Explore las doradas dunas de Merzouga a lomos de un camello, una forma tradicional y tranquila de descubrir el desierto.</p></article>
+      <article><h3>Excursión en 4x4 por Merzouga</h3><p>Emprenda una aventura en 4x4 por las dunas del Erg Chebbi y los paisajes del Sáhara.</p></article>
+      <article><h3>Sandboard</h3><p>Deslícese por las dunas de Merzouga y viva la emoción sobre la arena.</p></article>
+      <article><h3>Puesta de sol</h3><p>Contemple desde las dunas de Merzouga un espectáculo impresionante, cuando el desierto se tiñe de dorado.</p></article>
+      <article><h3>Observación de estrellas</h3><p>Lejos de la contaminación lumínica, el cielo estrellado del desierto de Merzouga es único.</p></article>
+      <article><h3>Velada alrededor del fuego</h3><p>Reúnase alrededor de la hoguera y comparta momentos cálidos bajo las estrellas.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Preguntas frecuentes sobre las excursiones en Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

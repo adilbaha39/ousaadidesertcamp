@@ -6,11 +6,11 @@ import { SITE, wa } from '@/lib/site'
 import '@/styles/galerie.css'
 
 export const metadata: Metadata = {
-  title: { absolute: "Fotos de Merzouga: Galería del Campamento y el Desierto | Ousaadi" },
-  description: "Fotos de Merzouga: descubra en imágenes nuestro campamento, las jaimas, las dunas, los camellos y las veladas junto al fuego. Ousaadi, campamento de lujo en Marruecos.",
-  alternates: { canonical: "/es/fotos-merzouga", languages: { fr: "/photos-merzouga", en: "/en/photos-merzouga", es: "/es/fotos-merzouga", ar: "/ar/photos-merzouga", 'x-default': "/galerie" } },
-  openGraph: { title: "Fotos de Merzouga: Galería del Campamento y el Desierto | Ousaadi", description: "Fotos de Merzouga: descubra en imágenes nuestro campamento, las jaimas, las dunas, los camellos y las veladas junto al fuego. Ousaadi, campamento de lujo en Marruecos.", url: "/es/fotos-merzouga", siteName: SITE.name, locale: 'es_ES', type: 'website' },
-  twitter: { card: 'summary_large_image', title: "Fotos de Merzouga: Galería del Campamento y el Desierto | Ousaadi", description: "Fotos de Merzouga: descubra en imágenes nuestro campamento, las jaimas, las dunas, los camellos y las veladas junto al fuego. Ousaadi, campamento de lujo en Marruecos." },
+  title: { absolute: "Fotos Merzouga: Galería del Campamento y Desierto | Ousaadi" },
+  description: "Fotos de Merzouga: descubra el campamento Ousaadi, las jaimas, las dunas, los camellos y las veladas junto al fuego. Campamento de lujo en Marruecos.",
+  alternates: { canonical: "/es/fotos-merzouga", languages: { fr: "/photos-merzouga", en: "/en/photos-merzouga", es: "/es/fotos-merzouga", ar: "/ar/photos-merzouga", 'x-default': "/photos-merzouga" } },
+  openGraph: { title: "Fotos Merzouga: Galería del Campamento y Desierto | Ousaadi", description: "Fotos de Merzouga: descubra el campamento Ousaadi, las jaimas, las dunas, los camellos y las veladas junto al fuego. Campamento de lujo en Marruecos.", url: "/es/fotos-merzouga", siteName: SITE.name, locale: 'es_ES', type: 'website' },
+  twitter: { card: 'summary_large_image', title: "Fotos Merzouga: Galería del Campamento y Desierto | Ousaadi", description: "Fotos de Merzouga: descubra el campamento Ousaadi, las jaimas, las dunas, los camellos y las veladas junto al fuego. Campamento de lujo en Marruecos." },
 }
 
 const jsonLd = {
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/galerie-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Campamento de lujo en Merzouga, Marruecos: jaimas confortables, cocina marroquí, paseos en camello, excursiones en 4x4 y noches estrelladas.",
       "telephone": "+212661175228",
@@ -32,7 +33,7 @@ const jsonLd = {
     },
     {
       "@type": "CollectionPage",
-      "name": "Fotos de Merzouga: Galería del Campamento y el Desierto | Ousaadi",
+      "name": "Fotos Merzouga: Galería del Campamento y Desierto | Ousaadi",
       "url": "https://osaadiluxurydesertcamp.com/es/fotos-merzouga",
       "inLanguage": "es"
     },
@@ -56,10 +57,25 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "¿Dónde se tomaron estas fotos?", a: "En el campamento Ousaadi y en el desierto de Merzouga, en el sureste de Marruecos, cerca de las dunas del Erg Chebbi." },
+  { q: "¿Puedo ver más fotos de las jaimas?", a: "Sí, descubra nuestros tres tipos de jaimas en la página de Alojamiento, o pídanos más fotos por WhatsApp." },
+  { q: "¿Qué actividades aparecen en la galería?", a: "Paseos en camello, excursiones en 4x4, paseos en quad y veladas alrededor del fuego." },
+  { q: "¿Cómo se reserva después de ver las fotos?", a: "Por WhatsApp, indicándonos las fechas y el número de personas." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function GaleriaPageEs() {
   return (
     <div className="pg-galerie" id="top">
+      <link rel="preload" as="image" href="/images/galerie-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="diam" viewBox="0 0 24 24"><path d="M12 2l10 10-10 10L2 12zM12 7l5 5-5 5-5-5z" /></symbol>
@@ -114,6 +130,26 @@ export default function GaleriaPageEs() {
       <button className="ph" data-cat="tentes"><Image src="/images/chambre-en-tente-de-luxe-aux-lits-bordeaux-luxury-desert-camp-merzouga.webp" width={634} height={408} sizes="(max-width: 1000px) 100vw, 50vw" alt="Dormitorio en una jaima de lujo con camas burdeos, campamento de lujo en Merzouga" /></button>
       <button className="ph" data-cat="camp"><Image src="/images/lanternes-marocaines-blanches-dans-le-camp-de-merzouga-la-nuit.webp" width={590} height={412} sizes="(max-width: 1000px) 100vw, 50vw" alt="Faroles marroquíes blancos en el campamento de Merzouga por la noche" /></button>
       <button className="ph" data-cat="activites"><Image src="/images/feu-de-camp-et-coussins-rouges-sous-les-etoiles-camp-ousaadi-a-merzoug.webp" width={620} height={412} sizes="(max-width: 1000px) 100vw, 50vw" alt="Hoguera y cojines rojos bajo las estrellas, campamento Ousaadi en Merzouga" /></button>
+      </section>
+      <section className="seo rv">
+      <h2>Fotos del campamento Ousaadi y del desierto de Merzouga</h2>
+      <p>Esta galería reúne fotos del campamento Ousaadi y del desierto de Merzouga: las jaimas con camas confortables, los caminos iluminados con farolillos, el restaurante bajo carpa, los camellos al atardecer, las excursiones en 4x4 y en quad por las dunas y las veladas alrededor del fuego.</p>
+      <p>Utilice los filtros para recorrer el campamento, las jaimas, las actividades o el desierto, y escríbanos por WhatsApp para reservar su estancia.</p>
+      </section>
+      <section className="seo choose rv">
+      <h2>Lo que descubrirá en las fotos</h2>
+      <div className="cols c2">
+      <article><h3>El Campamento</h3><p>Caminos iluminados con farolillos, alfombra roja, restaurante bajo carpa y buffet marroquí: el ambiente del campamento Ousaadi, de día y de noche.</p></article>
+      <article><h3>Las Jaimas</h3><p>Jaimas de lujo con camas burdeos, pensadas para combinar confort y decoración marroquí.</p></article>
+      <article><h3>Las Actividades</h3><p>Caravanas de camellos, excursiones en 4x4, paseos en quad y veladas alrededor del fuego bajo las estrellas.</p></article>
+      <article><h3>El Desierto</h3><p>Las dunas de Merzouga al atardecer, entre arena dorada y grandes espacios.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Preguntas frecuentes sobre las fotos de Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

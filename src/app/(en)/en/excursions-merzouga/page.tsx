@@ -6,11 +6,11 @@ import { SITE, wa } from '@/lib/site'
 import '@/styles/experiences.css'
 
 export const metadata: Metadata = {
-  title: { absolute: "Merzouga Desert Excursions: Camel, 4x4 & Sandboarding | Ousaadi" },
+  title: { absolute: "Merzouga Desert Excursions: Camel, 4x4, Sandboard | Ousaadi" },
   description: "Book a Merzouga desert excursion with Ousaadi: camel trek, 4x4 across the Erg Chebbi dunes, sandboarding, sunset and stargazing nights. Book on WhatsApp.",
-  alternates: { canonical: "/en/excursions-merzouga", languages: { fr: "/excursions-merzouga", en: "/en/excursions-merzouga", es: "/es/excursiones-merzouga", ar: "/ar/excursions-merzouga", 'x-default': "/experiences" } },
-  openGraph: { title: "Merzouga Desert Excursions: Camel, 4x4 & Sandboarding | Ousaadi", description: "Book a Merzouga desert excursion with Ousaadi: camel trek, 4x4 across the Erg Chebbi dunes, sandboarding, sunset and stargazing nights. Book on WhatsApp.", url: "/en/excursions-merzouga", siteName: SITE.name, locale: 'en_US', type: 'website' },
-  twitter: { card: 'summary_large_image', title: "Merzouga Desert Excursions: Camel, 4x4 & Sandboarding | Ousaadi", description: "Book a Merzouga desert excursion with Ousaadi: camel trek, 4x4 across the Erg Chebbi dunes, sandboarding, sunset and stargazing nights. Book on WhatsApp." },
+  alternates: { canonical: "/en/excursions-merzouga", languages: { fr: "/excursions-merzouga", en: "/en/excursions-merzouga", es: "/es/excursiones-merzouga", ar: "/ar/excursions-merzouga", 'x-default': "/excursions-merzouga" } },
+  openGraph: { title: "Merzouga Desert Excursions: Camel, 4x4, Sandboard | Ousaadi", description: "Book a Merzouga desert excursion with Ousaadi: camel trek, 4x4 across the Erg Chebbi dunes, sandboarding, sunset and stargazing nights. Book on WhatsApp.", url: "/en/excursions-merzouga", siteName: SITE.name, locale: 'en_US', type: 'website' },
+  twitter: { card: 'summary_large_image', title: "Merzouga Desert Excursions: Camel, 4x4, Sandboard | Ousaadi", description: "Book a Merzouga desert excursion with Ousaadi: camel trek, 4x4 across the Erg Chebbi dunes, sandboarding, sunset and stargazing nights. Book on WhatsApp." },
 }
 
 const jsonLd = {
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/experiences-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Luxury desert camp in Merzouga, Morocco: comfortable tents, Moroccan cuisine and desert experiences.",
       "telephone": "+212661175228",
@@ -49,17 +50,34 @@ const jsonLd = {
     },
     {
       "@type": "WebPage",
-      "name": "Merzouga Desert Excursions: Camel, 4x4 & Sandboarding | Ousaadi",
+      "name": "Merzouga Desert Excursions: Camel, 4x4, Sandboard | Ousaadi",
       "url": "https://osaadiluxurydesertcamp.com/en/excursions-merzouga",
       "inLanguage": "en"
     }
   ]
 }
 
+const faq = [
+  { q: "What activities can I do in the Merzouga desert with Ousaadi?", a: "Camel treks, 4x4 excursions in the Erg Chebbi, sandboarding, sunset, stargazing and campfire evenings." },
+  { q: "How do I book an excursion?", a: "On WhatsApp: tell us your dates, the number of people and the activities you are interested in." },
+  { q: "When is the best time for the camel trek?", a: "Many travellers choose it at sunset, when the golden light on the dunes is at its best. Ask us for the timing that suits your stay." },
+  { q: "Can I see the stars from the camp?", a: "Yes, the camp is set in the middle of the desert, far from light pollution, which gives an exceptional starry sky." },
+  { q: "Is the food at the camp Moroccan?", a: "Yes: carefully prepared Moroccan cuisine, mint tea and outdoor dining." },
+  { q: "Where do the excursions take place?", a: "In the Merzouga desert, on the Erg Chebbi dunes in south-eastern Morocco." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function ExperiencesPageEn() {
   return (
     <div className="pg-experiences" id="top">
+      <link rel="preload" as="image" href="/images/experiences-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="camel" viewBox="0 0 24 24"><path d="M2 21v-6l2-1 1-5 3 3 3-1 2-5 3 1 1 4 4 2v8h-1.500v-6l-1.500-.5V21H15v-5H9v5H7.500v-5L5 16v5z" fill="currentColor" stroke="none" /></symbol>
@@ -100,6 +118,11 @@ export default function ExperiencesPageEn() {
       <div className="hero-txt"><h1>Merzouga Desert Excursions</h1>
       <p>Live unforgettable moments in the heart of the Sahara</p><div className="hl"><i></i></div></div>
       </section>
+      <section className="seo rv">
+      <h2>Excursions and activities in the Merzouga desert</h2>
+      <p>At Ousaadi camp, the Merzouga desert can be enjoyed from day to night: a camel trek across the golden dunes, a 4x4 excursion in the Erg Chebbi, sandboarding, sunset, stargazing and an evening around the campfire. Each activity is easy to book as part of your stay at the camp.</p>
+      <p>Message us on WhatsApp with your dates, the number of people and the activities you would like, and we will organise your programme.</p>
+      </section>
       <section className="cards" aria-label="Desert activities in Merzouga">
       <i className="orn tl" style={{top:"-10px"}}></i><i className="orn tr" style={{top:"-10px"}}></i>
       <a className="card rv" target="_blank" rel="noopener" href={wa("Hello, I would like to book a camel trek in Merzouga.")}><div className="in"><Image src="/images/balade-a-dos-de-dromadaire-dans-les-dunes-de-merzouga.webp" width={580} height={310} sizes="(max-width: 1000px) 100vw, 50vw" alt="Camel trek through the dunes of Merzouga" />
@@ -123,6 +146,23 @@ export default function ExperiencesPageEn() {
       <a className="btn wine more" target="_blank" rel="noopener" href={wa("Hello, I would like to know more about the Moroccan cuisine at Ousaadi camp in Merzouga.")}>Discover our cuisine <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></a></div>
       <div className="lant" aria-hidden="true"></div>
       <i className="orn bl" style={{bottom:"-20px",right:"0",left:"auto",transform:"scale(-1)"}}></i>
+      </section>
+      <section className="seo choose rv">
+      <h2>Our activities in the Merzouga desert</h2>
+      <div className="cols">
+      <article><h3>Camel trek</h3><p>Explore the golden dunes of Merzouga on camelback, a traditional and peaceful way to discover the desert.</p></article>
+      <article><h3>4x4 desert excursion</h3><p>Set off on an adventure by 4x4 across the Erg Chebbi dunes and the landscapes of the Sahara.</p></article>
+      <article><h3>Sandboarding</h3><p>Slide down the dunes of Merzouga and get your thrills on the sand.</p></article>
+      <article><h3>Sunset</h3><p>Watch a breathtaking sunset from the Merzouga dunes, when the desert turns golden.</p></article>
+      <article><h3>Stargazing</h3><p>Far from light pollution, the starry sky of the Merzouga desert is truly unique.</p></article>
+      <article><h3>Campfire evening</h3><p>Gather around the campfire and share warm moments under the stars.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Frequently asked questions about Merzouga excursions</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

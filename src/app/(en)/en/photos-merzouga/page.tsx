@@ -8,7 +8,7 @@ import '@/styles/galerie.css'
 export const metadata: Metadata = {
   title: { absolute: "Merzouga Photos: Camp & Desert Gallery | Ousaadi" },
   description: "Merzouga photos: discover our camp, tents, dunes, camels and campfire evenings in pictures. Ousaadi luxury desert camp, Morocco.",
-  alternates: { canonical: "/en/photos-merzouga", languages: { fr: "/photos-merzouga", en: "/en/photos-merzouga", es: "/es/fotos-merzouga", ar: "/ar/photos-merzouga", 'x-default': "/galerie" } },
+  alternates: { canonical: "/en/photos-merzouga", languages: { fr: "/photos-merzouga", en: "/en/photos-merzouga", es: "/es/fotos-merzouga", ar: "/ar/photos-merzouga", 'x-default': "/photos-merzouga" } },
   openGraph: { title: "Merzouga Photos: Camp & Desert Gallery | Ousaadi", description: "Merzouga photos: discover our camp, tents, dunes, camels and campfire evenings in pictures. Ousaadi luxury desert camp, Morocco.", url: "/en/photos-merzouga", siteName: SITE.name, locale: 'en_US', type: 'website' },
   twitter: { card: 'summary_large_image', title: "Merzouga Photos: Camp & Desert Gallery | Ousaadi", description: "Merzouga photos: discover our camp, tents, dunes, camels and campfire evenings in pictures. Ousaadi luxury desert camp, Morocco." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/galerie-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Luxury desert camp in Merzouga, Morocco: comfortable tents, Moroccan cuisine and desert experiences.",
       "telephone": "+212661175228",
@@ -56,10 +57,25 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "Where were these photos taken?", a: "At Ousaadi camp and in the Merzouga desert, in south-eastern Morocco, close to the Erg Chebbi dunes." },
+  { q: "Can I see more photos of the tents?", a: "Yes, see our three types of tents on the Accommodation page, or ask us for more photos on WhatsApp." },
+  { q: "Which activities appear in the gallery?", a: "Camel treks, 4x4 excursions, quad rides and campfire evenings." },
+  { q: "How do I book after seeing the photos?", a: "On WhatsApp, by telling us your dates and the number of people." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function GalleryPageEn() {
   return (
     <div className="pg-galerie" id="top">
+      <link rel="preload" as="image" href="/images/galerie-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="diam" viewBox="0 0 24 24"><path d="M12 2l10 10-10 10L2 12zM12 7l5 5-5 5-5-5z" /></symbol>
@@ -120,6 +136,26 @@ export default function GalleryPageEn() {
       <button className="ph" data-cat="activites"><Image src="/images/quads-dunes.webp" width={700} height={500} sizes="(max-width: 1000px) 100vw, 50vw" alt="Quad biking in Merzouga dunes" /></button>
       <button className="ph" data-cat="camp"><Image src="/images/soiree-feu-camp.webp" width={700} height={500} sizes="(max-width: 1000px) 100vw, 50vw" alt="Evening around the campfire at Ousaadi camp" /></button>
       <button className="ph" data-cat="camp"><Image src="/images/buffet-restaurant.webp" width={700} height={500} sizes="(max-width: 1000px) 100vw, 50vw" alt="Moroccan buffet at Ousaadi camp restaurant" /></button>
+      </section>
+      <section className="seo rv">
+      <h2>Photos of Ousaadi camp and the Merzouga desert</h2>
+      <p>This gallery brings together photos of Ousaadi camp and the Merzouga desert: tents with comfortable beds, lantern-lit pathways, the restaurant tent, camels at sunset, 4x4 and quad excursions across the dunes and evenings around the campfire.</p>
+      <p>Use the filters to browse the camp, the tents, the activities or the desert, then message us on WhatsApp to book your stay.</p>
+      </section>
+      <section className="seo choose rv">
+      <h2>What you will see in the photos</h2>
+      <div className="cols c2">
+      <article><h3>The Camp</h3><p>Lantern-lit pathways, a red carpet, the restaurant tent and a Moroccan buffet: the atmosphere of Ousaadi camp, by day and by night.</p></article>
+      <article><h3>The Tents</h3><p>Luxury tents with burgundy beds, designed to combine comfort and Moroccan decor.</p></article>
+      <article><h3>The Activities</h3><p>Camel caravans, 4x4 excursions, quad rides and campfire evenings under the stars.</p></article>
+      <article><h3>The Desert</h3><p>The Merzouga dunes at sunset, between golden sand and wide open spaces.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Frequently asked questions about Merzouga photos</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

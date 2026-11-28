@@ -8,7 +8,7 @@ import '@/styles/experiences-ar.css'
 export const metadata: Metadata = {
   title: { absolute: "رحلات صحراء مرزوكة: الجمال و4x4 والتزلج على الرمال | Ousaadi" },
   description: "احجز رحلتك في صحراء مرزوكة مع Ousaadi: جولة على الجمال، رحلة 4x4 بين كثبان عرق الشبي، تزلج على الرمال، غروب الشمس وليالٍ مرصعة بالنجوم.",
-  alternates: { canonical: "/ar/excursions-merzouga", languages: { fr: "/excursions-merzouga", en: "/en/excursions-merzouga", es: "/es/excursiones-merzouga", ar: "/ar/excursions-merzouga", 'x-default': "/experiences" } },
+  alternates: { canonical: "/ar/excursions-merzouga", languages: { fr: "/excursions-merzouga", en: "/en/excursions-merzouga", es: "/es/excursiones-merzouga", ar: "/ar/excursions-merzouga", 'x-default': "/excursions-merzouga" } },
   openGraph: { title: "رحلات صحراء مرزوكة: الجمال و4x4 والتزلج على الرمال | Ousaadi", description: "احجز رحلتك في صحراء مرزوكة مع Ousaadi: جولة على الجمال، رحلة 4x4 بين كثبان عرق الشبي، تزلج على الرمال، غروب الشمس وليالٍ مرصعة بالنجوم.", url: "/ar/excursions-merzouga", siteName: SITE.name, locale: 'ar_AR', type: 'website' },
   twitter: { card: 'summary_large_image', title: "رحلات صحراء مرزوكة: الجمال و4x4 والتزلج على الرمال | Ousaadi", description: "احجز رحلتك في صحراء مرزوكة مع Ousaadi: جولة على الجمال، رحلة 4x4 بين كثبان عرق الشبي، تزلج على الرمال، غروب الشمس وليالٍ مرصعة بالنجوم." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/experiences-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "مخيم صحراوي فاخر في مرزوكة، المغرب: خيام مريحة ومطبخ مغربي وجولات على الجمال ورحلات 4x4 وليالٍ مرصعة بالنجوم.",
       "telephone": "+212661175228",
@@ -56,10 +57,27 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "ما الأنشطة التي يمكن القيام بها في صحراء مرزوكة مع Ousaadi؟", a: "جولات على الجمال، ورحلات 4x4 في عرق الشبي، والتزلج على الرمال، وغروب الشمس، ورصد النجوم، وسهرات حول النار." },
+  { q: "كيف أحجز رحلة؟", a: "عبر واتساب: أخبرونا بالتواريخ وعدد الأشخاص والأنشطة التي تهمكم." },
+  { q: "ما أفضل وقت للجولة على الجمال؟", a: "يختارها كثير من المسافرين عند الغروب، حين يكون الضوء الذهبي على الكثبان في أجمل حالاته. اسألونا عن الموعد المناسب لإقامتكم." },
+  { q: "هل يمكن رؤية النجوم من المخيم؟", a: "نعم، المخيم في قلب الصحراء بعيدًا عن التلوث الضوئي، مما يمنح سماءً مرصعة بالنجوم استثنائية." },
+  { q: "هل الطعام في المخيم مغربي؟", a: "نعم: مطبخ مغربي يُحضَّر بعناية، وشاي بالنعناع، ووجبات في الهواء الطلق." },
+  { q: "أين تتم الرحلات؟", a: "في صحراء مرزوكة، فوق كثبان عرق الشبي، جنوب شرق المغرب." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function ExperiencesPageAr() {
   return (
     <div className="pg-experiences-ar" id="top">
+      <link rel="preload" as="image" href="/images/experiences-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="camel" viewBox="0 0 24 24"><path d="M2 21v-6l2-1 1-5 3 3 3-1 2-5 3 1 1 4 4 2v8h-1.500v-6l-1.500-.5V21H15v-5H9v5H7.500v-5L5 16v5z" fill="currentColor" stroke="none" /></symbol>
@@ -100,6 +118,11 @@ export default function ExperiencesPageAr() {
       <div className="hero-txt"><h1>رحلات صحراء مرزوكة</h1>
       <p>عش لحظات لا تُنسى في قلب الصحراء الكبرى</p><div className="hl"><i></i></div></div>
       </section>
+      <section className="seo rv">
+      <h2>رحلات وأنشطة في صحراء مرزوكة</h2>
+      <p>في مخيم Ousaadi تُعاش صحراء مرزوكة من النهار حتى الليل: جولة على الجمال بين الكثبان الذهبية، ورحلة 4x4 في عرق الشبي، والتزلج على الرمال، وغروب الشمس، ورصد النجوم، وسهرة حول النار. ويمكن حجز كل نشاط بسهولة ضمن إقامتكم في المخيم.</p>
+      <p>راسلونا عبر واتساب مع ذكر التواريخ وعدد الأشخاص والأنشطة التي تريدونها، ونتولى تنظيم برنامجكم.</p>
+      </section>
       <section className="cards" aria-label="أنشطة في صحراء مرزوكة">
       <i className="orn tl" style={{top:"-10px"}}></i><i className="orn tr" style={{top:"-10px"}}></i>
       <a className="card rv" target="_blank" rel="noopener" href={wa("مرحبًا، أودّ حجز جولة على الجمال في مرزوكة.")}><div className="in"><Image src="/images/balade-a-dos-de-dromadaire-dans-les-dunes-de-merzouga.webp" width={580} height={310} sizes="(max-width: 1000px) 100vw, 50vw" alt="جولة على الجمال بين كثبان مرزوكة" />
@@ -123,6 +146,23 @@ export default function ExperiencesPageAr() {
       <a className="btn wine more" target="_blank" rel="noopener" href={wa("مرحبًا، أودّ معرفة المزيد عن المطبخ المغربي في مخيم Ousaadi بمرزوكة.")}>اكتشف مطبخنا <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></a></div>
       <div className="lant" aria-hidden="true"></div>
       <i className="orn bl" style={{bottom:"-20px",left:"0",right:"auto",transform:"scaleY(-1)"}}></i>
+      </section>
+      <section className="seo choose rv">
+      <h2>أنشطتنا في صحراء مرزوكة</h2>
+      <div className="cols">
+      <article><h3>جولة على ظهر الجمل</h3><p>استكشفوا كثبان مرزوكة الذهبية على ظهر جمل، وهي طريقة تقليدية وهادئة لاكتشاف الصحراء.</p></article>
+      <article><h3>رحلة 4x4 في مرزوكة</h3><p>انطلقوا في مغامرة بسيارة 4x4 عبر كثبان عرق الشبي ومناظر الصحراء.</p></article>
+      <article><h3>التزلج على الرمال</h3><p>انزلقوا فوق كثبان مرزوكة وعيشوا لحظات مثيرة على الرمال.</p></article>
+      <article><h3>غروب الشمس</h3><p>شاهدوا من كثبان مرزوكة غروبًا خلابًا للشمس حين تكتسي الصحراء بلونها الذهبي.</p></article>
+      <article><h3>رصد النجوم</h3><p>بعيدًا عن التلوث الضوئي، تقدم سماء صحراء مرزوكة المرصعة بالنجوم مشهدًا فريدًا.</p></article>
+      <article><h3>سهرة حول النار</h3><p>اجتمعوا حول نار المخيم وشاركوا لحظات دافئة تحت النجوم.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>أسئلة شائعة حول رحلات مرزوكة</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

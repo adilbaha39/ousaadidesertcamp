@@ -123,3 +123,23 @@
 .pg-hebergement .lant,.pg-hebergement .lant2{display:none}}
 @media(prefers-reduced-motion:reduce){.pg-hebergement *{scroll-behavior:auto!important;transition:none!important}
 .pg-hebergement .rv{opacity:1;transform:none}}
+
+/* --- Contenu SEO ajouté (hébergement) --- */
+.pg-hebergement .seo{max-width:980px;margin:0 auto;padding:34px var(--pad) 14px;text-align:center}
+.pg-hebergement .seo h2{font:600 clamp(24px,2.6vw,34px)/1.2 var(--serif);color:var(--wine-d);margin-bottom:16px}
+.pg-hebergement .seo p{font:500 clamp(17px,1.5vw,19px)/1.6 var(--serif2);color:#3d2418;margin:0 auto 14px}
+.pg-hebergement .choose{max-width:1100px}
+.pg-hebergement .choose .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:start}
+.pg-hebergement .choose article{background:rgba(255,255,255,.35);border:1px solid rgba(176,102,30,.4);border-radius:10px;padding:18px 20px}
+.pg-hebergement .choose h3{font:600 clamp(19px,1.8vw,22px)/1.3 var(--serif);color:var(--wine-d);margin-bottom:8px}
+.pg-hebergement .choose article p{font-size:clamp(16px,1.4vw,18px);margin:0}
+.pg-hebergement .faq{text-align:start;padding-bottom:40px}
+.pg-hebergement .faq h2{text-align:center}
+.pg-hebergement .faq details{border-top:1px solid rgba(176,102,30,.4);padding:14px 4px}
+.pg-hebergement .faq details:last-of-type{border-bottom:1px solid rgba(176,102,30,.4)}
+.pg-hebergement .faq summary{cursor:pointer;font:600 clamp(17px,1.6vw,20px)/1.4 var(--serif);color:var(--wine-d);list-style:none;display:flex;justify-content:space-between;gap:16px}
+.pg-hebergement .faq summary::-webkit-details-marker{display:none}
+.pg-hebergement .faq summary::after{content:"+";color:var(--gold);font-size:24px;line-height:1}
+.pg-hebergement .faq details[open] summary::after{content:"\2212"}
+.pg-hebergement .faq details p{margin:10px 0 0}
+@media(max-width:800px){.pg-hebergement .choose .cols{grid-template-columns:1fr}}

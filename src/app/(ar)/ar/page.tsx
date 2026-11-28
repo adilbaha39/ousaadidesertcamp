@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/home-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "مخيم صحراوي فاخر في مرزوكة، المغرب: خيام مريحة ومطبخ مغربي وجولات على الجمال ورحلات 4x4 وليالٍ مرصعة بالنجوم.",
       "telephone": "+212661175228",
@@ -39,10 +40,26 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "أين يقع مخيم Ousaadi؟", a: "في صحراء مرزوكة، جنوب شرق المغرب، عند أقدام كثبان عرق الشبي." },
+  { q: "ما الأنشطة التي يقدمها المخيم؟", a: "جولات على الجمال، ورحلات 4x4، والتزلج على الرمال، ودراجات الكواد، ومشاهدة غروب الشمس فوق الكثبان، وسهرات حول النار تحت النجوم." },
+  { q: "ما أفضل وقت لزيارة صحراء مرزوكة؟", a: "الربيع والخريف يتميزان بحرارة معتدلة. في الصيف يشتد الحر نهارا، وفي الشتاء تكون الليالي باردة، لكن السماء غالبا ما تكون رائعة." },
+  { q: "كيف أحجز؟", a: "مباشرة عبر واتساب، بإرسال التواريخ وعدد المسافرين." },
+  { q: "هل الطعام في المخيم مغربي؟", a: "نعم، الوجبات من المطبخ المغربي التقليدي." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function HomePageAr() {
   return (
     <div className="pg-home-ar" id="top">
+      <link rel="preload" as="image" href="/images/home-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16zM12 20v-8M8 20l4-8 4 8" /></symbol>
@@ -97,9 +114,15 @@ export default function HomePageAr() {
       <div><svg className="i"><use href="#suv" /></svg>رحلات بسيارات 4x4</div>
       <div><svg className="i"><use href="#star" /></svg>سماء مرصعة بالنجوم</div>
       </section>
+      <section className="seo rv">
+      <h2>Ousaadi Luxury Desert Camp، مخيمكم الصحراوي الفاخر في مرزوكة</h2>
+      <p>Ousaadi مخيم صحراوي فاخر في مرزوكة، جنوب شرق المغرب، قبالة كثبان عرق الشبي الشاسعة. هنا تلتقي راحة مخيم مُعتنى به بأصالة الصحراء المغربية: خيام أنيقة، ومطبخ مغربي يُحضَّر في المخيم، وجولات على الجمال عند الغروب، وليالٍ تحت سماء مرصعة بالنجوم صافية على نحو نادر.</p>
+      <p>سواء سافرتم كزوجين أو مع العائلة أو الأصدقاء، يستقبلكم فريقنا بالضيافة المغربية ويهتم بكل التفاصيل لتصبح إقامتكم في صحراء مرزوكة ذكرى لا تُنسى.</p>
+      </section>
       <section className="hb rv" id="accommodation">
       <div><div className="ln"></div><h3 className="t">إقامتنا في مرزوكة</h3>
       <p>خيام فاخرة أنيقة ومريحة لإقامة أصيلة في صحراء مرزوكة.</p>
+      <p className="txt">يضم المخيم خيامًا فاخرة وخيامًا تقليدية وخيامًا بريميوم، صُمّمت جميعها لتجمع بين الراحة وأجواء الصحراء: أسرّة مرتبة وديكور مغربي وفوانيس تُضاء مع حلول الليل. لكل نوع من الخيام طابعه الخاص لتختاروا ما يناسب رحلتكم.</p>
       <Link className="btn wine" href="/ar/luxury-tents-merzouga" style={{fontSize:"14px",padding:"10px 20px"}}>شاهد الخيام <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></Link></div>
       <div className="rooms">
       <div className="ph"><Image src="/images/tente-de-luxe-avec-lits-blancs-et-lanterne-a-merzouga.webp" width={420} height={390} sizes="(max-width: 1000px) 100vw, 50vw" alt="خيمة فاخرة بأسرّة بيضاء وفانوس في مرزوكة" /></div>
@@ -111,6 +134,7 @@ export default function HomePageAr() {
       <i className="orn tl" style={{top:"-40px"}}></i><i className="orn tr" style={{top:"-40px"}}></i>
       <h3 className="t">تجارب في صحراء مرزوكة</h3>
       <p>جولات على الجمال، ورحلات 4x4 بين كثبان عرق الشبي، وسهرات حول النار، وليالٍ مرصعة بالنجوم</p>
+      <p className="txt">يمكن عيش صحراء مرزوكة بطرق عديدة. اركبوا الجمل نحو كثبان عرق الشبي في الساعة الذهبية، وانطلقوا في رحلة 4x4 عبر مسالك الصحراء ومناظرها، وانزلقوا على الكثبان بلوح التزلج على الرمال أو جرّبوا دراجة الكواد. وفي المساء، اجتمعوا حول النار في سهرة ودية تحت النجوم.</p>
       <h4 className="sr">صور مرزوكة: مخيمنا والصحراء</h4>
       <div className="gal" id="gallery">
       <div className="ph"><Image src="/images/balade-a-dromadaire-au-coucher-du-soleil-dans-le-desert-de-merzouga.webp" width={474} height={274} sizes="(max-width: 1000px) 100vw, 50vw" alt="جولة على الجمال عند الغروب في صحراء مرزوكة" /></div>
@@ -123,11 +147,21 @@ export default function HomePageAr() {
       <i className="orn tl"></i><i className="orn br" style={{bottom:"0"}}></i>
       <div><h3 className="t">لماذا تختار OUSAADI في مرزوكة؟</h3><p>مخيمكم الصحراوي الفاخر في مرزوكة: تجربة أصيلة واستقبال دافئ</p></div>
       <ul>
-      <li><svg className="i"><use href="#gem" /></svg>راحة<br />وأناقة</li>
-      <li><svg className="i"><use href="#shield" /></svg>أصالة<br />مغربية</li>
-      <li><svg className="i"><use href="#snow" /></svg>طبيعة<br />محفوظة</li>
-      <li><svg className="i"><use href="#heart" /></svg>ضيافة<br />استثنائية</li>
+      <li><svg className="i"><use href="#gem" /></svg>راحة<br />وأناقة<span className="d">خيام فاخرة مريحة وديكور مغربي أنيق في قلب الصحراء.</span></li>
+      <li><svg className="i"><use href="#shield" /></svg>أصالة<br />مغربية<span className="d">مطبخ تقليدي، وخيام مستوحاة من نمط العيش الأمازيغي، ولحظات تُقتسم حول النار.</span></li>
+      <li><svg className="i"><use href="#snow" /></svg>طبيعة<br />محفوظة<span className="d">كثبان على مدّ البصر، وصمت الصحراء، وسماء مرصعة بالنجوم بعيدة عن التلوث الضوئي.</span></li>
+      <li><svg className="i"><use href="#heart" /></svg>ضيافة<br />استثنائية<span className="d">فريق يصغي إليكم، من أول رسالة على واتساب حتى لحظة المغادرة.</span></li>
       </ul>
+      </section>
+      <section className="seo rv" id="book">
+      <h2>كيف تحجزون إقامتكم في مرزوكة</h2>
+      <p>الحجز في مخيم Ousaadi سهل: راسلونا عبر واتساب مع ذكر التواريخ وعدد الأشخاص والأنشطة التي تهمكم. نرد عليكم بالتوفر والأسعار، ثم ننظم وصولكم إلى مرزوكة.</p>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>أسئلة شائعة حول مخيم مرزوكة الصحراوي</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       <section className="cta" id="contact">
       <h3>احجز إقامتك في مخيم مرزوكة الآن</h3><p>وعش مغامرة لا تُنسى في صحراء مرزوكة</p>

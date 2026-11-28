@@ -8,7 +8,7 @@ import '@/styles/hebergement.css'
 export const metadata: Metadata = {
   title: { absolute: "Merzouga Luxury Desert Camp | Luxury Tents in Merzouga" },
   description: "Stay at Ousaadi, a luxury desert camp in Merzouga: luxury, traditional and premium tents with comfortable beds and desert views. Book on WhatsApp.",
-  alternates: { canonical: "/en/luxury-tents-merzouga", languages: { fr: "/tentes-de-luxe-merzouga", en: "/en/luxury-tents-merzouga", es: "/es/tiendas-de-lujo-merzouga", ar: "/ar/luxury-tents-merzouga", 'x-default': "/hebergement" } },
+  alternates: { canonical: "/en/luxury-tents-merzouga", languages: { fr: "/tentes-de-luxe-merzouga", en: "/en/luxury-tents-merzouga", es: "/es/tiendas-de-lujo-merzouga", ar: "/ar/luxury-tents-merzouga", 'x-default': "/tentes-de-luxe-merzouga" } },
   openGraph: { title: "Merzouga Luxury Desert Camp | Luxury Tents in Merzouga", description: "Stay at Ousaadi, a luxury desert camp in Merzouga: luxury, traditional and premium tents with comfortable beds and desert views. Book on WhatsApp.", url: "/en/luxury-tents-merzouga", siteName: SITE.name, locale: 'en_US', type: 'website' },
   twitter: { card: 'summary_large_image', title: "Merzouga Luxury Desert Camp | Luxury Tents in Merzouga", description: "Stay at Ousaadi, a luxury desert camp in Merzouga: luxury, traditional and premium tents with comfortable beds and desert views. Book on WhatsApp." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/hebergement-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Luxury desert camp in Merzouga, Morocco: luxury, traditional and premium tents, Moroccan cuisine and desert experiences.",
       "telephone": "+212661175228",
@@ -56,10 +57,26 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "What types of tents does Ousaadi camp offer?", a: "Three types: luxury tents, traditional tents and premium tents." },
+  { q: "Which tent should I choose for a family?", a: "The traditional tents, which are spacious and ideal for families. Contact us on WhatsApp to confirm the capacity for your group." },
+  { q: "Do the tents have a bathroom?", a: "Yes, the bathroom is private or shared depending on the tent. Ask us which setup suits your stay." },
+  { q: "Where are the tents located?", a: "In our camp, in the heart of the Merzouga desert in south-eastern Morocco, close to the Erg Chebbi dunes." },
+  { q: "How do I book a tent?", a: "On WhatsApp: tell us your dates, the number of people and the type of tent you would like." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function AccommodationPageEn() {
   return (
     <div className="pg-hebergement" id="top">
+      <link rel="preload" as="image" href="/images/hebergement-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16zM12 20v-8M8 20l4-8 4 8" /></symbol>
@@ -101,6 +118,11 @@ export default function AccommodationPageEn() {
       <div className="hero-txt"><h1>Merzouga Luxury Desert Camp</h1><div className="hl"><i></i></div>
       <p>Comfortable, elegant tents for an unforgettable stay at our luxury desert camp, in the heart of the Moroccan Sahara.</p></div>
       </section>
+      <section className="seo rv">
+      <h2>Luxury tents in the heart of the Merzouga desert</h2>
+      <p>At Ousaadi camp you can choose between three types of tents: luxury, traditional and premium. All of them stand in our luxury desert camp in Merzouga, at the foot of the Erg Chebbi dunes, and are designed to give you comfortable beds, a bathroom and the unique atmosphere of the Moroccan desert.</p>
+      <p>Whether you are looking for maximum comfort, a more traditional experience or a more exclusive atmosphere, there is a tent for your stay. Message us on WhatsApp and we will help you choose according to your dates and the number of travellers.</p>
+      </section>
       <section className="rows">
       <i className="orn tr" style={{top:"25%"}}></i><i className="orn tr" style={{top:"68%",height:"clamp(110px,17vw,230px)"}}></i><i className="orn tl" style={{top:"38%",opacity:".3"}}></i>
       <article className="row rv">
@@ -126,12 +148,26 @@ export default function AccommodationPageEn() {
       <a className="btn wine more" target="_blank" rel="noopener" href={wa("Hello, I would like more information about the Premium Tents.")}>Learn more <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></a></div>
       </article>
       </section>
+      <section className="seo choose rv">
+      <h2>Which tent should you choose in Merzouga?</h2>
+      <div className="cols">
+      <article><h3>Luxury tent</h3><p>Spacious and decorated in an authentic Moroccan style, it offers comfortable beds and a bathroom (private or shared). A good choice if comfort is your priority.</p></article>
+      <article><h3>Traditional tent</h3><p>It combines simplicity and Moroccan charm in a spacious interior with views of the desert. Ideal for families, it immerses you in the authenticity of the Merzouga desert.</p></article>
+      <article><h3>Premium tent</h3><p>With its elegant design and unique atmosphere, it is made for an experience between luxury and nature, with great comfort.</p></article>
+      </div>
+      </section>
       <section className="eq rv"><i className="orn tl"></i><i className="orn tr"></i>
       <h3>Amenities &amp; Comfort</h3>
       <ul>
       <li><svg className="i"><use href="#bed" /></svg>Comfortable beds</li>
       <li><svg className="i"><use href="#shower" /></svg>Bathroom</li>
       </ul>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Frequently asked questions about our tents in Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       <section className="cta" id="contact">
       <h3>Book your stay now</h3><p>and live an unforgettable desert experience in Merzouga</p>

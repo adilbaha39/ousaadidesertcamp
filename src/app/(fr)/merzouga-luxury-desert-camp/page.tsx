@@ -8,7 +8,7 @@ import '@/styles/apropos.css'
 export const metadata: Metadata = {
   title: { absolute: "Merzouga Luxury Desert Camp : Notre Histoire | Ousaadi" },
   description: "Ousaadi, merzouga luxury desert camp : découvrez notre histoire, notre hospitalité marocaine et un camp authentique au cœur du désert de Merzouga, Maroc.",
-  alternates: { canonical: "/merzouga-luxury-desert-camp", languages: { fr: "/merzouga-luxury-desert-camp", en: "/en/merzouga-luxury-desert-camp", es: "/es/campamento-lujo-merzouga", ar: "/ar/merzouga-luxury-desert-camp", 'x-default': "/apropos" } },
+  alternates: { canonical: "/merzouga-luxury-desert-camp", languages: { fr: "/merzouga-luxury-desert-camp", en: "/en/merzouga-luxury-desert-camp", es: "/es/campamento-lujo-merzouga", ar: "/ar/merzouga-luxury-desert-camp", 'x-default': "/merzouga-luxury-desert-camp" } },
   openGraph: { title: "Merzouga Luxury Desert Camp : Notre Histoire | Ousaadi", description: "Un camp de luxe authentique au cœur du désert de Merzouga : confort, authenticité et hospitalité marocaine.", url: "/merzouga-luxury-desert-camp", siteName: SITE.name, locale: 'fr_FR', type: 'website' },
   twitter: { card: 'summary_large_image', title: "Merzouga Luxury Desert Camp : Notre Histoire | Ousaadi", description: "Un camp de luxe authentique au cœur du désert de Merzouga : confort, authenticité et hospitalité marocaine." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/apropos-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Merzouga luxury desert camp : tentes confortables, hospitalité marocaine et expériences authentiques dans le désert.",
       "telephone": "+212661175228",
@@ -54,10 +55,26 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "Qu’est-ce que le camp Ousaadi ?", a: "Ousaadi Luxury Desert Camp est un bivouac de luxe dans le désert de Merzouga, au Maroc, qui propose des tentes confortables, une cuisine marocaine et des activités dans les dunes." },
+  { q: "Où se trouve le camp ?", a: "Dans le désert de Merzouga, au sud-est du Maroc, au pied des dunes de l’erg Chebbi." },
+  { q: "Qu’est-ce qui rend l’expérience authentique ?", a: "Une hospitalité marocaine chaleureuse, une cuisine traditionnelle, le thé à la menthe et des moments partagés autour du feu, dans un décor inspiré de la culture marocaine." },
+  { q: "Quels hébergements sont disponibles ?", a: "Des tentes luxueuses, des tentes traditionnelles et des tentes premium." },
+  { q: "Comment réserver ?", a: "Par WhatsApp, en nous indiquant vos dates et le nombre de voyageurs." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function AProposPage() {
   return (
     <div className="pg-apropos" id="top">
+      <link rel="preload" as="image" href="/images/apropos-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 96 42"><path d="M2 38 22 20l8 8 14-22 12 18 8-8 8 14 6-4 16 14z M44 6l-4 7 4-2 4 4 3-6zM56 24l4-5 5 5" fill="none" stroke="currentColor" /></symbol>
       <symbol id="tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16zM12 20v-9M8 20l4-9 4 9" fill="currentColor" /></symbol>
@@ -100,6 +117,12 @@ export default function AProposPage() {
       <a className="btn wine" target="_blank" rel="noopener" href={wa("Bonjour, je souhaite réserver un séjour au camp Ousaadi à Merzouga.")}><svg className="i"><use href="#wa" /></svg>Réserver sur WhatsApp</a></div>
       <figure><Image src="/images/caravane-de-dromadaires-dans-les-dunes-de-merzouga-au-coucher-du-solei.webp" width={1040} height={524} sizes="(max-width: 1000px) 100vw, 50vw" alt="Caravane de dromadaires dans les dunes de Merzouga au coucher du soleil" /></figure>
       </section>
+      {/* À compléter avec l’histoire réelle du camp (fondateur, année de création, famille, équipe) : renforce la confiance (E-E-A-T) */}
+      <section className="seo rv">
+      <h2>Un luxury desert camp pensé pour vivre le désert de Merzouga</h2>
+      <p>Ousaadi est un luxury desert camp à Merzouga, installé au pied des dunes de l’erg Chebbi, au sud-est du Maroc. Notre idée est simple : vous faire vivre le Sahara marocain dans un cadre confortable, sans rien perdre de son authenticité.</p>
+      <p>Nos tentes luxueuses, traditionnelles et premium, notre cuisine marocaine, nos balades à dromadaire, nos excursions en 4x4 et nos soirées autour du feu composent un séjour pensé dans l’esprit de l’hospitalité marocaine.</p>
+      </section>
       <section className="why rv">
       <h2>Pourquoi choisir OUSAADI à Merzouga ?</h2><div className="dl"><i></i></div>
       <div className="cards">
@@ -108,6 +131,21 @@ export default function AProposPage() {
       <div className="cd"><div><svg className="i"><use href="#gem" /></svg>Un hébergement confortable</div></div>
       <div className="cd"><div><svg className="i"><use href="#lotus" /></svg>Des expériences inoubliables</div></div>
       </div>
+      </section>
+      <section className="seo choose rv">
+      <h2>Ce qui vous attend au camp Ousaadi</h2>
+      <div className="cols c2">
+      <article><h3>Un cadre unique au Sahara</h3><p>Les dunes de l’erg Chebbi, le silence du désert et un ciel étoilé loin de la pollution lumineuse : le décor de votre séjour à Merzouga.</p></article>
+      <article><h3>Une hospitalité marocaine chaleureuse</h3><p>Une équipe à votre écoute, du premier message WhatsApp jusqu’à votre départ, avec le thé à la menthe et la convivialité marocaine.</p></article>
+      <article><h3>Un hébergement confortable</h3><p>Trois types de tentes, luxueuses, traditionnelles et premium, avec des lits confortables et une salle de bain.</p></article>
+      <article><h3>Des expériences inoubliables</h3><p>Balade à dromadaire, excursion 4x4, sandboard, coucher de soleil, observation des étoiles et soirée autour du feu.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Questions fréquentes sur le camp Ousaadi</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

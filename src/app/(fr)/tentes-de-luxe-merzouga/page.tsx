@@ -8,7 +8,7 @@ import '@/styles/hebergement.css'
 export const metadata: Metadata = {
   title: { absolute: "Bivouac de Luxe à Merzouga | Tentes de Luxe – Ousaadi" },
   description: "Ousaadi, luxury camp à Merzouga : tentes luxueuses, traditionnelles et premium, literie confortable, salle de bain. Réservez votre camp de luxe sur WhatsApp.",
-  alternates: { canonical: "/tentes-de-luxe-merzouga", languages: { fr: "/tentes-de-luxe-merzouga", en: "/en/luxury-tents-merzouga", es: "/es/tiendas-de-lujo-merzouga", ar: "/ar/luxury-tents-merzouga", 'x-default': "/hebergement" } },
+  alternates: { canonical: "/tentes-de-luxe-merzouga", languages: { fr: "/tentes-de-luxe-merzouga", en: "/en/luxury-tents-merzouga", es: "/es/tiendas-de-lujo-merzouga", ar: "/ar/luxury-tents-merzouga", 'x-default': "/tentes-de-luxe-merzouga" } },
   openGraph: { title: "Bivouac de Luxe à Merzouga | Tentes de Luxe – Ousaadi", description: "Ousaadi, luxury camp à Merzouga : tentes luxueuses, traditionnelles et premium, literie confortable, salle de bain. Réservez votre camp de luxe sur WhatsApp.", url: "/tentes-de-luxe-merzouga", siteName: SITE.name, locale: 'fr_FR', type: 'website' },
   twitter: { card: 'summary_large_image', title: "Bivouac de Luxe à Merzouga | Tentes de Luxe – Ousaadi", description: "Ousaadi, luxury camp à Merzouga : tentes luxueuses, traditionnelles et premium, literie confortable, salle de bain. Réservez votre camp de luxe sur WhatsApp." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/hebergement-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Luxury desert camp à Merzouga, Maroc : tentes luxueuses, traditionnelles et premium, cuisine marocaine, balades à dromadaire, excursions 4x4 et nuits étoilées.",
       "telephone": "+212661175228",
@@ -50,10 +51,26 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "Quels types de tentes propose le camp Ousaadi ?", a: "Trois types : les tentes luxueuses, les tentes traditionnelles et les tentes premium." },
+  { q: "Quelle tente choisir pour une famille ?", a: "Les tentes traditionnelles, spacieuses et idéales pour les familles. Contactez-nous sur WhatsApp pour confirmer la capacité selon votre groupe." },
+  { q: "Les tentes ont-elles une salle de bain ?", a: "Oui, la salle de bain est privée ou dépendante selon la tente. Demandez-nous la configuration qui correspond à votre séjour." },
+  { q: "Où se trouvent les tentes ?", a: "Dans notre camp, au cœur du désert de Merzouga, au sud-est du Maroc, près des dunes de l’erg Chebbi." },
+  { q: "Comment réserver une tente ?", a: "Par WhatsApp : indiquez-nous vos dates, le nombre de personnes et le type de tente souhaité." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function HebergementPage() {
   return (
     <div className="pg-hebergement" id="top">
+      <link rel="preload" as="image" href="/images/hebergement-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16zM12 20v-8M8 20l4-8 4 8" /></symbol>
@@ -95,6 +112,11 @@ export default function HebergementPage() {
       <div className="hero-txt"><h1>Nos Hébergements à Merzouga</h1><div className="hl"><i></i></div>
       <p>Des tentes confortables et élégantes pour un séjour inoubliable dans notre luxury camp, au cœur du désert de Merzouga.</p></div>
       </section>
+      <section className="seo rv">
+      <h2>Des tentes de luxe pour dormir dans le désert de Merzouga</h2>
+      <p>Au camp Ousaadi, vous choisissez entre trois types de tentes : luxueuses, traditionnelles et premium. Toutes sont installées dans notre bivouac de luxe à Merzouga, au pied des dunes de l’erg Chebbi, et pensées pour vous offrir une literie confortable, une salle de bain et l’ambiance unique du désert marocain.</p>
+      <p>Que vous cherchiez un maximum de confort, une expérience plus traditionnelle ou une ambiance plus exclusive, il y a une tente pour votre séjour. Écrivez-nous sur WhatsApp et nous vous aidons à choisir selon vos dates et le nombre de voyageurs.</p>
+      </section>
       <section className="rows">
       <i className="orn tr" style={{top:"25%"}}></i><i className="orn tr" style={{top:"68%",height:"clamp(110px,17vw,230px)"}}></i><i className="orn tl" style={{top:"38%",opacity:".3"}}></i>
       <article className="row rv">
@@ -120,12 +142,26 @@ export default function HebergementPage() {
       <a className="btn wine more" target="_blank" rel="noopener" href={wa("Bonjour, je souhaite plus d'informations sur les Tentes Premium.")}>En savoir plus <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></a></div>
       </article>
       </section>
+      <section className="seo choose rv">
+      <h2>Quelle tente choisir à Merzouga ?</h2>
+      <div className="cols">
+      <article><h3>Tente luxueuse</h3><p>Spacieuse et décorée dans un style marocain authentique, elle offre des lits confortables et une salle de bain (privée ou dépendante). C’est le bon choix si le confort est votre priorité.</p></article>
+      <article><h3>Tente traditionnelle</h3><p>Elle allie simplicité et charme marocain dans un espace spacieux avec vue sur le désert. Idéale pour les familles, elle vous plonge dans l’authenticité du désert de Merzouga.</p></article>
+      <article><h3>Tente premium</h3><p>Au design élégant et à l’ambiance unique, elle est conçue pour une expérience entre luxe et nature, avec un grand confort.</p></article>
+      </div>
+      </section>
       <section className="eq rv"><i className="orn tl"></i><i className="orn tr"></i>
       <h3>Équipements &amp; Confort</h3>
       <ul>
       <li><svg className="i"><use href="#bed" /></svg>Lits confortables</li>
       <li><svg className="i"><use href="#shower" /></svg>Salle de bain</li>
       </ul>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Questions fréquentes sur nos tentes à Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       <section className="cta" id="contact">
       <h3>Réservez dès maintenant votre séjour</h3><p>et vivez une expérience désertique inoubliable à Merzouga</p>

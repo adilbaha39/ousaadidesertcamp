@@ -8,7 +8,7 @@ import '@/styles/contact-ar.css'
 export const metadata: Metadata = {
   title: { absolute: "احجز مخيم في مرزوكة | اتصل بنا والحجز — Ousaadi" },
   description: "احجز مخيمك في مرزوكة مع Ousaadi: تواصل معنا عبر واتساب على الرقم +212 661 175 228. مخيم صحراوي فاخر في مرزوكة، المغرب، يستقبلكم كل يوم على مدار الساعة.",
-  alternates: { canonical: "/ar/book-merzouga", languages: { fr: "/reservation-merzouga", en: "/en/book-merzouga", es: "/es/reservar-merzouga", ar: "/ar/book-merzouga", 'x-default': "/contact" } },
+  alternates: { canonical: "/ar/book-merzouga", languages: { fr: "/reservation-merzouga", en: "/en/book-merzouga", es: "/es/reservar-merzouga", ar: "/ar/book-merzouga", 'x-default': "/reservation-merzouga" } },
   openGraph: { title: "احجز مخيم في مرزوكة | اتصل بنا والحجز — Ousaadi", description: "احجز مخيمك في مرزوكة مع Ousaadi: تواصل معنا عبر واتساب على الرقم +212 661 175 228. مخيم صحراوي فاخر في مرزوكة، المغرب، يستقبلكم كل يوم على مدار الساعة.", url: "/ar/book-merzouga", siteName: SITE.name, locale: 'ar_AR', type: 'website' },
   twitter: { card: 'summary_large_image', title: "احجز مخيم في مرزوكة | اتصل بنا والحجز — Ousaadi", description: "احجز مخيمك في مرزوكة مع Ousaadi: تواصل معنا عبر واتساب على الرقم +212 661 175 228. مخيم صحراوي فاخر في مرزوكة، المغرب، يستقبلكم كل يوم على مدار الساعة." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/contact-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "مخيم صحراوي فاخر في مرزوكة، المغرب: خيام مريحة ومطبخ مغربي وجولات على الجمال ورحلات 4x4 وليالٍ مرصعة بالنجوم.",
       "telephone": "+212661175228",
@@ -80,10 +81,27 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "كيف أحجز في مخيم Ousaadi؟", a: "أسهل طريقة هي مراسلتنا عبر واتساب مع ذكر التواريخ وعدد الأشخاص." },
+  { q: "كيف يمكنني التواصل معكم؟", a: "عبر واتساب أو الهاتف أو البريد الإلكتروني، والتفاصيل في قسم معلوماتنا." },
+  { q: "هل أنتم متاحون كل يوم؟", a: "نعم، نحن متاحون كل يوم على مدار الساعة." },
+  { q: "أين يقع المخيم وكيف أصل إليه؟", a: "يقع مخيمنا في مرزوكة، في قلب الصحراء المغربية، بالقرب من الكثبان الكبيرة، ويسهل الوصول إليه بالسيارة من أرفود." },
+  { q: "ماذا أذكر في طلب الحجز؟", a: "التواريخ، وعدد الأشخاص، ونوع الخيمة المطلوب (فاخرة أو تقليدية أو بريميوم)، والأنشطة التي تهمكم." },
+  { q: "هل يمكنني حجز الأنشطة مع الخيمة؟", a: "نعم، أخبرونا بالأنشطة التي تريدونها (الجمل، 4x4، التزلج على الرمال، سهرة حول النار…) وندرجها ضمن إقامتكم." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function ContactPageAr() {
   return (
     <div className="pg-contact-ar" id="top">
+      <link rel="preload" as="image" href="/images/contact-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 96 42"><path d="M2 38 22 20l8 8 14-22 12 18 8-8 8 14 6-4 16 14z M44 6l-4 7 4-2 4 4 3-6zM56 24l4-5 5 5" fill="none" stroke="currentColor" /></symbol>
       <symbol id="wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.700 13.600L3 21l4.500-1.200A9 9 0 1 0 12 3z" /><path d="M9 7.800c-.6 1 0 3 2 5s4 2.600 5.200 2l.4-1.600-2-1-1 .8c-1-.4-2-1.400-2.400-2.400l.8-1z" fill="currentColor" stroke="none" /></symbol>
@@ -121,6 +139,11 @@ export default function ContactPageAr() {
       <p>مغامرتك في صحراء مرزوكة تبدأ من هنا…</p><div className="hl"><i></i></div>
       <a className="btn gold" target="_blank" rel="noopener" aria-label="احجز مخيم مرزوكة عبر واتساب" href={wa("مرحبًا، أودّ حجز إقامة في مخيم Ousaadi في مرزوكة.")}><svg className="i"><use href="#wa" /></svg>احجز عبر واتساب <svg className="i" style={{fontSize:"18px"}}><use href="#rt" /></svg></a></div>
       </section>
+      <section className="seo rv">
+      <h2>احجزوا إقامتكم في مخيم Ousaadi بمرزوكة</h2>
+      <p>أسهل طريقة للحجز في مخيم Ousaadi هي مراسلتنا عبر واتساب. نحن متاحون كل يوم على مدار الساعة: أخبرونا بالتواريخ وعدد الأشخاص ونوع الخيمة (فاخرة أو تقليدية أو بريميوم) والأنشطة التي تهمكم.</p>
+      <p>نرد عليكم بالتوفر والأسعار، ثم ننظم وصولكم إلى صحراء مرزوكة.</p>
+      </section>
       <section className="info rv">
       <div><h2>معلوماتنا</h2><div className="dl"><i></i></div>
       <div className="row"><div className="ic"><svg className="i"><use href="#pin" /></svg></div><div><b>موقعنا</b><span>مرزوكة، المغرب</span></div></div>
@@ -141,6 +164,20 @@ export default function ContactPageAr() {
       <p>يقع مخيمنا في مرزوكة، في قلب الصحراء المغربية، ويسهل الوصول إليه من أرفود.</p>
       <ul><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>بالقرب من الكثبان الكبيرة</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>وصول سهل بالسيارة</li><li><i><svg className="i" style={{fontSize:"15px"}}><use href="#chk" /></svg></i>استقبال دافئ في عين المكان</li></ul></div>
       <div className="lant" aria-hidden="true"></div>
+      </section>
+      <section className="seo choose rv">
+      <h2>كيف تحجزون مخيمكم في مرزوكة في 3 خطوات</h2>
+      <div className="cols">
+      <article><h3>1. راسلونا</h3><p>تواصلوا معنا عبر واتساب أو الهاتف أو البريد الإلكتروني، كل يوم على مدار الساعة.</p></article>
+      <article><h3>2. حددوا إقامتكم</h3><p>أخبرونا بالتواريخ وعدد المسافرين ونوع الخيمة المطلوب والأنشطة التي تودون القيام بها.</p></article>
+      <article><h3>3. استعدوا للوصول</h3><p>نرد عليكم بالتوفر والأسعار، ثم ننظم وصولكم إلى مرزوكة.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>أسئلة شائعة حول الحجز في مرزوكة</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

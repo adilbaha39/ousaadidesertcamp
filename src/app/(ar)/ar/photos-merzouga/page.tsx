@@ -8,7 +8,7 @@ import '@/styles/galerie-ar.css'
 export const metadata: Metadata = {
   title: { absolute: "صور مرزوكة: معرض المخيم والصحراء | Ousaadi" },
   description: "صور مرزوكة: اكتشف مخيمنا وخيامنا وكثبان الصحراء والجمال وسهرات النار بالصور. Ousaadi مخيم صحراوي فاخر في المغرب.",
-  alternates: { canonical: "/ar/photos-merzouga", languages: { fr: "/photos-merzouga", en: "/en/photos-merzouga", es: "/es/fotos-merzouga", ar: "/ar/photos-merzouga", 'x-default': "/galerie" } },
+  alternates: { canonical: "/ar/photos-merzouga", languages: { fr: "/photos-merzouga", en: "/en/photos-merzouga", es: "/es/fotos-merzouga", ar: "/ar/photos-merzouga", 'x-default': "/photos-merzouga" } },
   openGraph: { title: "صور مرزوكة: معرض المخيم والصحراء | Ousaadi", description: "صور مرزوكة: اكتشف مخيمنا وخيامنا وكثبان الصحراء والجمال وسهرات النار بالصور. Ousaadi مخيم صحراوي فاخر في المغرب.", url: "/ar/photos-merzouga", siteName: SITE.name, locale: 'ar_AR', type: 'website' },
   twitter: { card: 'summary_large_image', title: "صور مرزوكة: معرض المخيم والصحراء | Ousaadi", description: "صور مرزوكة: اكتشف مخيمنا وخيامنا وكثبان الصحراء والجمال وسهرات النار بالصور. Ousaadi مخيم صحراوي فاخر في المغرب." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/galerie-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "مخيم صحراوي فاخر في مرزوكة، المغرب: خيام مريحة ومطبخ مغربي وجولات على الجمال ورحلات 4x4 وليالٍ مرصعة بالنجوم.",
       "telephone": "+212661175228",
@@ -56,10 +57,25 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "أين التُقطت هذه الصور؟", a: "في مخيم Ousaadi وصحراء مرزوكة، جنوب شرق المغرب، قرب كثبان عرق الشبي." },
+  { q: "هل يمكنني رؤية صور أخرى للخيام؟", a: "نعم، اكتشفوا أنواع الخيام الثلاثة في صفحة الإقامة، أو اطلبوا منا صورًا إضافية عبر واتساب." },
+  { q: "ما الأنشطة التي تظهر في المعرض؟", a: "جولات على الجمال، ورحلات 4x4، وجولات الكواد، وسهرات حول النار." },
+  { q: "كيف أحجز بعد مشاهدة الصور؟", a: "عبر واتساب، بإرسال التواريخ وعدد الأشخاص." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function GalleryPageAr() {
   return (
     <div className="pg-galerie-ar" id="top">
+      <link rel="preload" as="image" href="/images/galerie-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="diam" viewBox="0 0 24 24"><path d="M12 2l10 10-10 10L2 12zM12 7l5 5-5 5-5-5z" /></symbol>
@@ -114,6 +130,26 @@ export default function GalleryPageAr() {
       <button className="ph" data-cat="tentes"><Image src="/images/chambre-en-tente-de-luxe-aux-lits-bordeaux-luxury-desert-camp-merzouga.webp" width={634} height={408} sizes="(max-width: 1000px) 100vw, 50vw" alt="غرفة نوم في خيمة فاخرة بأسرّة بوردو، مخيم صحراوي فاخر في مرزوكة" /></button>
       <button className="ph" data-cat="camp"><Image src="/images/lanternes-marocaines-blanches-dans-le-camp-de-merzouga-la-nuit.webp" width={590} height={412} sizes="(max-width: 1000px) 100vw, 50vw" alt="فوانيس مغربية بيضاء في مخيم مرزوكة ليلًا" /></button>
       <button className="ph" data-cat="activites"><Image src="/images/feu-de-camp-et-coussins-rouges-sous-les-etoiles-camp-ousaadi-a-merzoug.webp" width={620} height={412} sizes="(max-width: 1000px) 100vw, 50vw" alt="نار المخيم ووسائد حمراء تحت النجوم، مخيم Ousaadi في مرزوكة" /></button>
+      </section>
+      <section className="seo rv">
+      <h2>صور مخيم Ousaadi وصحراء مرزوكة</h2>
+      <p>يجمع هذا المعرض صورًا لمخيم Ousaadi وصحراء مرزوكة: الخيام ذات الأسرّة المريحة، والممرات المضاءة بالفوانيس، ومطعم الخيمة، والجمال عند الغروب، ورحلات 4x4 والكواد بين الكثبان، وسهرات حول النار.</p>
+      <p>استخدموا المرشحات لتصفح المخيم والخيام والأنشطة والصحراء، ثم راسلونا عبر واتساب لحجز إقامتكم.</p>
+      </section>
+      <section className="seo choose rv">
+      <h2>ما ستكتشفونه في الصور</h2>
+      <div className="cols c2">
+      <article><h3>المخيم</h3><p>ممرات مضاءة بالفوانيس، وسجادة حمراء، ومطعم تحت الخيمة، وبوفيه مغربي: أجواء مخيم Ousaadi نهارًا وليلًا.</p></article>
+      <article><h3>الخيام</h3><p>خيام فاخرة بأسرّة بلون العنابي، صُمّمت لتجمع بين الراحة والديكور المغربي.</p></article>
+      <article><h3>الأنشطة</h3><p>قوافل الجمال، ورحلات 4x4، وجولات الكواد، وسهرات حول النار تحت النجوم.</p></article>
+      <article><h3>الصحراء</h3><p>كثبان مرزوكة عند الغروب، بين الرمال الذهبية والمساحات الشاسعة.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>أسئلة شائعة حول صور مرزوكة</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

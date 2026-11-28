@@ -7,10 +7,10 @@ import '@/styles/home.css'
 
 export const metadata: Metadata = {
   title: { absolute: "Campamento de Lujo en Merzouga | Ousaadi Desert Camp" },
-  description: "Ousaadi, campamento de lujo en el desierto de Merzouga: jaimas confortables, cocina marroquí, excursiones en camello y 4x4, noches estrelladas. Reserve por WhatsApp.",
+  description: "Ousaadi, campamento de lujo en el desierto de Merzouga: jaimas confortables, cocina marroquí, camello y 4x4, noches estrelladas. Reserve por WhatsApp.",
   alternates: { canonical: "/es", languages: { fr: "/", en: "/en", es: "/es", ar: "/ar", 'x-default': "/" } },
-  openGraph: { title: "Campamento de Lujo en Merzouga | Ousaadi Desert Camp", description: "Ousaadi, campamento de lujo en el desierto de Merzouga: jaimas confortables, cocina marroquí, excursiones en camello y 4x4, noches estrelladas. Reserve por WhatsApp.", url: "/es", siteName: SITE.name, locale: 'es_ES', type: 'website' },
-  twitter: { card: 'summary_large_image', title: "Campamento de Lujo en Merzouga | Ousaadi Desert Camp", description: "Ousaadi, campamento de lujo en el desierto de Merzouga: jaimas confortables, cocina marroquí, excursiones en camello y 4x4, noches estrelladas. Reserve por WhatsApp." },
+  openGraph: { title: "Campamento de Lujo en Merzouga | Ousaadi Desert Camp", description: "Ousaadi, campamento de lujo en el desierto de Merzouga: jaimas confortables, cocina marroquí, camello y 4x4, noches estrelladas. Reserve por WhatsApp.", url: "/es", siteName: SITE.name, locale: 'es_ES', type: 'website' },
+  twitter: { card: 'summary_large_image', title: "Campamento de Lujo en Merzouga | Ousaadi Desert Camp", description: "Ousaadi, campamento de lujo en el desierto de Merzouga: jaimas confortables, cocina marroquí, camello y 4x4, noches estrelladas. Reserve por WhatsApp." },
 }
 
 const jsonLd = {
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/home-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Campamento de lujo en Merzouga, Marruecos: jaimas confortables, cocina marroquí, paseos en camello, excursiones en 4x4 y noches estrelladas.",
       "telephone": "+212661175228",
@@ -39,10 +40,26 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "¿Dónde está el campamento Ousaadi?", a: "En el desierto de Merzouga, en el sureste de Marruecos, a los pies de las dunas del Erg Chebbi." },
+  { q: "¿Qué actividades ofrece el campamento?", a: "Paseos en camello, excursiones en 4x4, sandboard, quad, atardeceres en las dunas, hoguera y veladas bajo las estrellas." },
+  { q: "¿Cuál es la mejor época para visitar el desierto de Merzouga?", a: "La primavera y el otoño tienen temperaturas agradables. En verano hace mucho calor durante el día y en invierno las noches son frescas, pero el cielo suele ser espectacular." },
+  { q: "¿Cómo se reserva?", a: "Directamente por WhatsApp, indicándonos las fechas y el número de viajeros." },
+  { q: "¿La comida del campamento es marroquí?", a: "Sí, las comidas son de cocina marroquí tradicional." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function HomePageEs() {
   return (
     <div className="pg-home" id="top">
+      <link rel="preload" as="image" href="/images/home-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="tent" viewBox="0 0 24 24"><path d="M3 20 12 4l9 16zM12 20v-8M8 20l4-8 4 8" /></symbol>
@@ -97,9 +114,15 @@ export default function HomePageEs() {
       <div><svg className="i"><use href="#suv" /></svg>Excursiones en 4x4</div>
       <div><svg className="i"><use href="#star" /></svg>Cielo Estrellado</div>
       </section>
+      <section className="seo rv">
+      <h2>Ousaadi Luxury Desert Camp, su campamento de lujo en Merzouga</h2>
+      <p>Ousaadi es un campamento de lujo en el desierto de Merzouga, en el sureste de Marruecos, frente a las grandes dunas del Erg Chebbi. Aquí la comodidad de un campamento cuidado se une a la autenticidad del Sáhara marroquí: jaimas elegantes, cocina marroquí preparada en el campamento, paseos en camello al atardecer y noches bajo un cielo estrellado de una claridad poco común.</p>
+      <p>Tanto si viaja en pareja, en familia o con amigos, nuestro equipo le recibe con la hospitalidad marroquí y cuida cada detalle para que su estancia en el desierto de Merzouga sea un recuerdo inolvidable.</p>
+      </section>
       <section className="hb rv" id="alojamiento">
       <div><div className="ln"></div><h3 className="t">Nuestro Alojamiento en Merzouga</h3>
       <p>Elegantes y confortables jaimas de lujo para una estancia auténtica en el desierto de Merzouga.</p>
+      <p className="txt">El campamento ofrece jaimas de lujo, jaimas tradicionales y jaimas premium, pensadas para combinar comodidad y ambiente del desierto: camas cuidadas, decoración marroquí y farolillos que se encienden al caer la noche. Cada tipo de jaima tiene su carácter, para que elija la que mejor encaja con su viaje.</p>
       <Link className="btn wine" href="/es/tiendas-de-lujo-merzouga" style={{fontSize:"14px",padding:"10px 20px"}}>Ver las Jaimas <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></Link></div>
       <div className="rooms">
       <div className="ph"><Image src="/images/tente-de-luxe-avec-lits-blancs-et-lanterne-a-merzouga.webp" width={420} height={390} sizes="(max-width: 1000px) 100vw, 50vw" alt="Jaima de lujo con camas blancas y un farol en Merzouga" /></div>
@@ -111,6 +134,7 @@ export default function HomePageEs() {
       <i className="orn tl" style={{top:"-40px"}}></i><i className="orn tr" style={{top:"-40px"}}></i>
       <h3 className="t">Experiencias en el Desierto de Merzouga</h3>
       <p>Paseos en camello, excursiones en 4x4 por las dunas del Erg Chebbi, hogueras y noches estrelladas</p>
+      <p className="txt">El desierto de Merzouga se vive de muchas maneras. Salga en camello hacia las dunas del Erg Chebbi a la hora dorada, haga una excursión en 4x4 por las pistas y paisajes del Sáhara, deslícese en sandboard por las dunas o pruebe el quad. Por la noche, reúnase alrededor de la hoguera en una velada agradable bajo las estrellas.</p>
       <h4 className="sr">Fotos de Merzouga: nuestro campamento y el desierto</h4>
       <div className="gal" id="galeria">
       <div className="ph"><Image src="/images/balade-a-dromadaire-au-coucher-du-soleil-dans-le-desert-de-merzouga.webp" width={474} height={274} sizes="(max-width: 1000px) 100vw, 50vw" alt="Paseo en camello al atardecer en el desierto de Merzouga" /></div>
@@ -123,11 +147,21 @@ export default function HomePageEs() {
       <i className="orn tl"></i><i className="orn br" style={{bottom:"0"}}></i>
       <div><h3 className="t">¿Por qué elegir OUSAADI en Merzouga?</h3><p>Su campamento de lujo en Merzouga: una experiencia auténtica y una cálida bienvenida</p></div>
       <ul>
-      <li><svg className="i"><use href="#gem" /></svg>Confort<br />&amp; Elegancia</li>
-      <li><svg className="i"><use href="#shield" /></svg>Autenticidad<br />Marroquí</li>
-      <li><svg className="i"><use href="#snow" /></svg>Naturaleza<br />Preservada</li>
-      <li><svg className="i"><use href="#heart" /></svg>Hospitalidad<br />Excepcional</li>
+      <li><svg className="i"><use href="#gem" /></svg>Confort<br />&amp; Elegancia<span className="d">Jaimas de lujo confortables y una cuidada decoración marroquí, en pleno desierto.</span></li>
+      <li><svg className="i"><use href="#shield" /></svg>Autenticidad<br />Marroquí<span className="d">Cocina tradicional, jaimas inspiradas en el estilo de vida bereber y momentos compartidos alrededor del fuego.</span></li>
+      <li><svg className="i"><use href="#snow" /></svg>Naturaleza<br />Preservada<span className="d">Dunas hasta donde alcanza la vista, el silencio del Sáhara y un cielo estrellado sin contaminación lumínica.</span></li>
+      <li><svg className="i"><use href="#heart" /></svg>Hospitalidad<br />Excepcional<span className="d">Un equipo atento, desde su primer mensaje por WhatsApp hasta su despedida.</span></li>
       </ul>
+      </section>
+      <section className="seo rv" id="reservar">
+      <h2>Cómo reservar su estancia en Merzouga</h2>
+      <p>Reservar en el campamento Ousaadi es sencillo: escríbanos por WhatsApp indicando sus fechas, el número de personas y las actividades que le interesan. Le responderemos con la disponibilidad y las tarifas, y organizaremos su llegada a Merzouga.</p>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Preguntas frecuentes sobre el campamento de Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       <section className="cta" id="contact">
       <h3>Reserve ahora su estancia en el campamento</h3><p>y viva una aventura inolvidable en el desierto de Merzouga</p>

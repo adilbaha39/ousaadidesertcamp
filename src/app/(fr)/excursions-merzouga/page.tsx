@@ -8,7 +8,7 @@ import '@/styles/experiences.css'
 export const metadata: Metadata = {
   title: { absolute: "Excursions Désert de Merzouga | Balades & 4x4 – Ousaadi" },
   description: "Désert de Merzouga : balade à dromadaire, excursion 4x4 dans l’erg Chebbi, sandboard, coucher de soleil et nuits étoilées avec Ousaadi. Réservez sur WhatsApp.",
-  alternates: { canonical: "/excursions-merzouga", languages: { fr: "/excursions-merzouga", en: "/en/excursions-merzouga", es: "/es/excursiones-merzouga", ar: "/ar/excursions-merzouga", 'x-default': "/experiences" } },
+  alternates: { canonical: "/excursions-merzouga", languages: { fr: "/excursions-merzouga", en: "/en/excursions-merzouga", es: "/es/excursiones-merzouga", ar: "/ar/excursions-merzouga", 'x-default': "/excursions-merzouga" } },
   openGraph: { title: "Excursions Désert de Merzouga | Balades & 4x4 – Ousaadi", description: "Balade à dromadaire, excursion 4x4 dans l’erg Chebbi, sandboard, coucher de soleil et nuits étoilées dans le désert de Merzouga.", url: "/excursions-merzouga", siteName: SITE.name, locale: 'fr_FR', type: 'website' },
   twitter: { card: 'summary_large_image', title: "Excursions Désert de Merzouga | Balades & 4x4 – Ousaadi", description: "Balade à dromadaire, excursion 4x4 dans l’erg Chebbi, sandboard, coucher de soleil et nuits étoilées dans le désert de Merzouga." },
 }
@@ -18,6 +18,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Campground",
+  "image": "https://osaadiluxurydesertcamp.com/images/experiences-hero-img.webp",
       "name": "Ousaadi Luxury Desert Camp",
       "description": "Luxury desert camp à Merzouga, Maroc : balade à dromadaire, excursion 4x4, sandboard, coucher de soleil, observation des étoiles et cuisine marocaine.",
       "telephone": "+212661175228",
@@ -50,10 +51,27 @@ const jsonLd = {
   ]
 }
 
+const faq = [
+  { q: "Quelles activités peut-on faire dans le désert de Merzouga avec Ousaadi ?", a: "Balade à dromadaire, excursion en 4x4 dans l’erg Chebbi, sandboard, coucher de soleil, observation des étoiles et soirée autour du feu." },
+  { q: "Comment réserver une excursion ?", a: "Par WhatsApp : indiquez-nous vos dates, le nombre de personnes et les activités qui vous intéressent." },
+  { q: "Quel est le meilleur moment pour la balade à dromadaire ?", a: "Beaucoup de voyageurs la choisissent au coucher du soleil, quand la lumière dorée sur les dunes est la plus belle. Demandez-nous l’horaire adapté à votre séjour." },
+  { q: "Peut-on voir les étoiles depuis le camp ?", a: "Oui, le camp est installé en plein désert, loin de la pollution lumineuse, ce qui offre un ciel étoilé exceptionnel." },
+  { q: "La cuisine du camp est-elle marocaine ?", a: "Oui : cuisine marocaine préparée avec soin, thé à la menthe et repas en plein air." },
+  { q: "Où se déroulent les excursions ?", a: "Dans le désert de Merzouga, sur les dunes de l’erg Chebbi, au sud-est du Maroc." },
+]
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })),
+}
+
 export default function ExperiencesPage() {
   return (
     <div className="pg-experiences" id="top">
+      <link rel="preload" as="image" href="/images/experiences-hero-img.webp" fetchPriority="high" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <svg width="0" height="0" style={{position:"absolute"}} aria-hidden="true">
       <symbol id="logo" viewBox="0 0 46 32"><path d="M3 29 23 5l20 24z M13 29 23 14l10 15M23 5v-3M18 29l5-9 5 9" fill="none" stroke="currentColor" /></symbol>
       <symbol id="camel" viewBox="0 0 24 24"><path d="M2 21v-6l2-1 1-5 3 3 3-1 2-5 3 1 1 4 4 2v8h-1.500v-6l-1.500-.5V21H15v-5H9v5H7.500v-5L5 16v5z" fill="currentColor" stroke="none" /></symbol>
@@ -94,6 +112,11 @@ export default function ExperiencesPage() {
       <div className="hero-txt"><h1>Nos Expériences</h1>
       <p>Vivez des moments inoubliables au cœur du désert de Merzouga</p><div className="hl"><i></i></div></div>
       </section>
+      <section className="seo rv">
+      <h2>Excursions et activités dans le désert de Merzouga</h2>
+      <p>Au camp Ousaadi, le désert de Merzouga se vit du jour jusqu’à la nuit : balade à dromadaire dans les dunes dorées, excursion en 4x4 dans l’erg Chebbi, sandboard, coucher de soleil, observation des étoiles et soirée autour du feu. Chaque activité se réserve simplement dans le cadre de votre séjour au camp.</p>
+      <p>Écrivez-nous sur WhatsApp en indiquant vos dates, le nombre de personnes et les activités souhaitées, et nous organisons votre programme.</p>
+      </section>
       <section className="cards" aria-label="Activités dans le désert de Merzouga">
       <i className="orn tl" style={{top:"-10px"}}></i><i className="orn tr" style={{top:"-10px"}}></i>
       <a className="card rv" target="_blank" rel="noopener" href={wa("Bonjour, je souhaite réserver une balade à dromadaire à Merzouga.")}><div className="in"><Image src="/images/balade-a-dos-de-dromadaire-dans-les-dunes-de-merzouga.webp" width={580} height={310} sizes="(max-width: 1000px) 100vw, 50vw" alt="Balade à dos de dromadaire dans les dunes de Merzouga" />
@@ -117,6 +140,23 @@ export default function ExperiencesPage() {
       <a className="btn wine more" target="_blank" rel="noopener" href={wa("Bonjour, je souhaite en savoir plus sur la cuisine marocaine du camp Ousaadi à Merzouga.")}>Découvrir notre cuisine <svg className="i" style={{fontSize:"16px"}}><use href="#rt" /></svg></a></div>
       <div className="lant" aria-hidden="true"></div>
       <i className="orn bl" style={{bottom:"-20px",right:"0",left:"auto",transform:"scale(-1)"}}></i>
+      </section>
+      <section className="seo choose rv">
+      <h2>Nos activités dans le désert de Merzouga</h2>
+      <div className="cols">
+      <article><h3>Balade à dos de dromadaire</h3><p>Explorez les dunes dorées de Merzouga à dos de dromadaire, une façon traditionnelle et paisible de découvrir le désert.</p></article>
+      <article><h3>Excursion 4x4 à Merzouga</h3><p>Partez à l’aventure à bord d’un 4x4 à travers les dunes de l’erg Chebbi et les paysages du Sahara.</p></article>
+      <article><h3>Sandboard</h3><p>Glissez sur les dunes de Merzouga et vivez des sensations fortes sur le sable.</p></article>
+      <article><h3>Coucher de soleil</h3><p>Admirez depuis les dunes de Merzouga un spectacle à couper le souffle, quand le désert prend ses teintes dorées.</p></article>
+      <article><h3>Observation des étoiles</h3><p>Loin de la pollution lumineuse, le ciel étoilé du désert de Merzouga offre un spectacle unique.</p></article>
+      <article><h3>Soirée autour du feu</h3><p>Retrouvez-vous autour du feu de camp pour partager des moments chaleureux sous les étoiles.</p></article>
+      </div>
+      </section>
+      <section className="seo faq rv" id="faq">
+      <h2>Questions fréquentes sur les excursions à Merzouga</h2>
+      {faq.map((f) => (
+        <details key={f.q}><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
       </section>
       </main>
       <section className="cta" id="contact">

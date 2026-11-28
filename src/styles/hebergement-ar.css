@@ -126,3 +126,23 @@
 .pg-hebergement-ar{--serif:var(--font-amiri),'Amiri',serif;--serif2:var(--font-amiri),'Amiri',serif;--sans:var(--font-cairo),'Cairo',sans-serif}
 .pg-hebergement-ar h1,.pg-hebergement-ar h2,.pg-hebergement-ar h3{line-height:1.4!important}
 .pg-hebergement-ar svg:has(> use[href="#rt"]){transform:scaleX(-1)}
+
+/* --- Contenu SEO ajouté (hébergement) --- */
+.pg-hebergement-ar .seo{max-width:980px;margin:0 auto;padding:34px var(--pad) 14px;text-align:center}
+.pg-hebergement-ar .seo h2{font:600 clamp(24px,2.6vw,34px)/1.2 var(--serif);color:var(--wine-d);margin-bottom:16px}
+.pg-hebergement-ar .seo p{font:500 clamp(17px,1.5vw,19px)/1.6 var(--serif2);color:#3d2418;margin:0 auto 14px}
+.pg-hebergement-ar .choose{max-width:1100px}
+.pg-hebergement-ar .choose .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:start}
+.pg-hebergement-ar .choose article{background:rgba(255,255,255,.35);border:1px solid rgba(176,102,30,.4);border-radius:10px;padding:18px 20px}
+.pg-hebergement-ar .choose h3{font:600 clamp(19px,1.8vw,22px)/1.3 var(--serif);color:var(--wine-d);margin-bottom:8px}
+.pg-hebergement-ar .choose article p{font-size:clamp(16px,1.4vw,18px);margin:0}
+.pg-hebergement-ar .faq{text-align:start;padding-bottom:40px}
+.pg-hebergement-ar .faq h2{text-align:center}
+.pg-hebergement-ar .faq details{border-top:1px solid rgba(176,102,30,.4);padding:14px 4px}
+.pg-hebergement-ar .faq details:last-of-type{border-bottom:1px solid rgba(176,102,30,.4)}
+.pg-hebergement-ar .faq summary{cursor:pointer;font:600 clamp(17px,1.6vw,20px)/1.4 var(--serif);color:var(--wine-d);list-style:none;display:flex;justify-content:space-between;gap:16px}
+.pg-hebergement-ar .faq summary::-webkit-details-marker{display:none}
+.pg-hebergement-ar .faq summary::after{content:"+";color:var(--gold);font-size:24px;line-height:1}
+.pg-hebergement-ar .faq details[open] summary::after{content:"\2212"}
+.pg-hebergement-ar .faq details p{margin:10px 0 0}
+@media(max-width:800px){.pg-hebergement-ar .choose .cols{grid-template-columns:1fr}}
